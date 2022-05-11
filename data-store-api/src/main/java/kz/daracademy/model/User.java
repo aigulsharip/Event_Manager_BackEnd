@@ -1,16 +1,24 @@
 package kz.daracademy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Entity
+@Table(name = "users")
 public class User {
-    private String name;
-    private String surname;
+    @Id
+    @GeneratedValue
+    private Long id;
+    @Column(unique = true)
+    private String userId;
+    private String fullName;
 
 
 }

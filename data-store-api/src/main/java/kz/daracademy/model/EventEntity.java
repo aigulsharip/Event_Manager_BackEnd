@@ -1,6 +1,7 @@
 package kz.daracademy.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -39,6 +40,14 @@ public class EventEntity {
 
     @Column
     Integer votes;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    Category category;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    User user;
+
+
 
 
 

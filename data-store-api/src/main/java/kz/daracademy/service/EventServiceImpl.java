@@ -23,6 +23,7 @@ public class EventServiceImpl implements EventService {
 
     static {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+
     }
 
     @Override

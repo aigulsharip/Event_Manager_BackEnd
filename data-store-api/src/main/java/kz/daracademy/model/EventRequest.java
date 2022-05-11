@@ -24,7 +24,12 @@ public class EventRequest {
 
     private String picture;
 
-    Integer votes;
+    private Integer votes;
+
+    private Category category;
+
+    private User user;
+
 
 
 

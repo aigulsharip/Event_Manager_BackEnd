@@ -24,4 +24,9 @@ public class EventResponse {
     private String picture;
 
     Integer votes;
+
+    private Category category;
+
+    private User user;
+
 }
