@@ -58,5 +58,18 @@ public class EventController {
 
 
 
+    @GetMapping("/section")
+    public List<EventResponse> getSections(@RequestParam String sectionName) {
+        if (sectionName.equals("popular")) {
+            return eventService.getPopularEvents();
+        } else if (sectionName.equals("upcoming")) {
+            return eventService.getUpcomingEvents();
+        }
+        return null;
+    }
+
+
+
+
 
 }

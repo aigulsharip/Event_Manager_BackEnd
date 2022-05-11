@@ -20,6 +20,14 @@ public interface EventService {
 
     List<EventResponse> getEventsByCategoryName(String categoryName);
 
+    List<EventResponse> getPopularEvents();
+
+    List<EventResponse> getUpcomingEvents();
+
+
+
+
+
 
 
 }
