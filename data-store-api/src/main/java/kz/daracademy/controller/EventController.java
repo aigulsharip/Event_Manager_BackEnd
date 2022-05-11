@@ -65,7 +65,10 @@ public class EventController {
         } else if (sectionName.equals("upcoming")) {
             return eventService.getUpcomingEvents();
         }
-        return null;
+        else if (sectionName.equals("new")) {
+            return eventService.getNewEvents();
+        }
+        return eventService.getAllEvents();
     }
 
 

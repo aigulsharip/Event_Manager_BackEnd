@@ -24,6 +24,8 @@ public interface EventService {
 
     List<EventResponse> getUpcomingEvents();
 
+    List<EventResponse> getNewEvents();
+
 
 
 

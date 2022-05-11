@@ -33,6 +33,7 @@ public class EventEntity {
     String picture;
     @Column
     Integer votes;
+
     @ManyToOne(fetch = FetchType.EAGER)
     Category category;
     @ManyToOne(fetch = FetchType.EAGER)
