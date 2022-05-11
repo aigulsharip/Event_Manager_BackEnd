@@ -46,6 +46,17 @@ public class EventController {
         eventService.deleteEventByEventId(eventId);
     }
 
+    @GetMapping("/filter")
+    public List<EventResponse> filterEventByCategory(@RequestParam String categoryId) {
+        return eventService.getEventsByCategoryId(categoryId);
+    }
+
+    @GetMapping("/filter/categoryName")
+    public List<EventResponse> filterEventByCategoryName(@RequestParam String categoryName) {
+        return eventService.getEventsByCategoryName(categoryName);
+    }
+
+
 
 
 }

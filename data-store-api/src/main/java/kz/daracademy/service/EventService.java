@@ -15,4 +15,11 @@ public interface EventService {
     EventResponse getEventById (String eventId);
     void deleteEventByEventId (String eventId);
 
+    List<EventResponse> getEventsByCategoryId(String categoryId);
+
+
+    List<EventResponse> getEventsByCategoryName(String categoryName);
+
+
+
 }

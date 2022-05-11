@@ -62,4 +62,16 @@ public class EventServiceImpl implements EventService {
         eventRepository.deleteEventEntityByEventId(eventId);
 
     }
+
+    @Override
+    public List<EventResponse> getEventsByCategoryId(String categoryId) {
+        return eventRepository.findEventEntitiesByCategory_CategoryId(categoryId).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
+
+    }
+
+    @Override
+    public List<EventResponse> getEventsByCategoryName(String categoryName) {
+        return eventRepository.findEventEntitiesByCategory_Name(categoryName).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
+
+    }
 }

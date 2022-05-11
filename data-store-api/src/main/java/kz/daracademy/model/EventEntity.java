@@ -15,35 +15,26 @@ import java.util.List;
 @Table(name = "events_table")
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class EventEntity {
     @Id
     @GeneratedValue
     private Long id;
     @Column(unique = true)
     String eventId;
-
     @Column
     String title;
-
     @Column
     String description;
-
     @Column
     Date startDateTime;
-
     @Column
     Date endDateTime;
-
     @Column
     String picture;
-
     @Column
     Integer votes;
-
     @ManyToOne(fetch = FetchType.EAGER)
     Category category;
-
     @ManyToOne(fetch = FetchType.EAGER)
     User user;
 
