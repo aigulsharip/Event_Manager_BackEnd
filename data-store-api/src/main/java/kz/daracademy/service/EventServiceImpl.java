@@ -95,7 +95,7 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<EventResponse> getNewEvents() {
-        //List of events from staring 1 one  and onward
+        //List of events from staring one month before today and onward
         Date startDate= Date.from(LocalDate.now().minusMonths(1).atStartOfDay(ZoneId.systemDefault()).toInstant());
         System.out.println(startDate);
         Date endDate= Date.from(LocalDate.now().plusMonths(6).atStartOfDay(ZoneId.systemDefault()).toInstant());
