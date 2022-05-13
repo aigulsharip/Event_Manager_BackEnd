@@ -1,16 +1,17 @@
-package kz.daracademy.model;
+package kz.daracademy.model.event;
 
+import kz.daracademy.model.category.CategoryEntity;
+import kz.daracademy.model.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class EventRequest {
+public class EventResponse {
 
     private String eventId;
 
@@ -26,6 +27,8 @@ public class EventRequest {
 
     Integer votes;
 
+    private CategoryEntity category;
 
+    private UserEntity user;
 
 }
