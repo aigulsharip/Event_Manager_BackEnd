@@ -1,7 +1,7 @@
 package kz.daracademy.model.event;
 
 import kz.daracademy.model.category.CategoryEntity;
-import kz.daracademy.model.user.UserEntity;
+import kz.daracademy.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +29,7 @@ public class EventRequest {
 
     private CategoryEntity category;
 
-    private UserEntity user;
+    private User user;
 
 
 

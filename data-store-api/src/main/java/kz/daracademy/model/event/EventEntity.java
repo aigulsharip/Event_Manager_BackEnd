@@ -2,7 +2,7 @@ package kz.daracademy.model.event;
 
 
 import kz.daracademy.model.category.CategoryEntity;
-import kz.daracademy.model.user.UserEntity;
+import kz.daracademy.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,7 +37,7 @@ public class EventEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     CategoryEntity category;
     @ManyToOne(fetch = FetchType.EAGER)
-    UserEntity user;
+    User user;
 
 
 
