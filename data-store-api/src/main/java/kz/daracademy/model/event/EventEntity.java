@@ -1,14 +1,14 @@
-package kz.daracademy.model;
+package kz.daracademy.model.event;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import kz.daracademy.model.category.CategoryEntity;
+import kz.daracademy.model.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Data
@@ -35,9 +35,9 @@ public class EventEntity {
     Integer votes;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    Category category;
+    CategoryEntity category;
     @ManyToOne(fetch = FetchType.EAGER)
-    User user;
+    UserEntity user;
 
 
 

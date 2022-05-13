@@ -1,7 +1,7 @@
-package kz.daracademy.service;
+package kz.daracademy.service.event;
 
-import kz.daracademy.model.EventRequest;
-import kz.daracademy.model.EventResponse;
+import kz.daracademy.model.event.EventRequest;
+import kz.daracademy.model.event.EventResponse;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package kz.daracademy.model;
+package kz.daracademy.model.category;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -11,14 +11,15 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "categories")
+
+public class CategoryEntity {
     @Id
     @GeneratedValue
     private Long id;
     @Column(unique = true)
-    private String userId;
-    private String fullName;
-
+    private String categoryId;
+    private String name;
+    private String orderInSorting;
 
 }

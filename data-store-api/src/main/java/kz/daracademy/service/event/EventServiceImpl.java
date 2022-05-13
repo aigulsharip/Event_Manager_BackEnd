@@ -1,8 +1,10 @@
-package kz.daracademy.service;
+package kz.daracademy.service.event;
 
-import kz.daracademy.model.EventEntity;
-import kz.daracademy.model.EventRequest;
-import kz.daracademy.model.EventResponse;
+import kz.daracademy.model.category.CategoryEntity;
+import kz.daracademy.model.event.EventEntity;
+import kz.daracademy.model.event.EventRequest;
+import kz.daracademy.model.event.EventResponse;
+import kz.daracademy.repository.CategoryRepository;
 import kz.daracademy.repository.EventRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -21,6 +23,9 @@ public class EventServiceImpl implements EventService {
 
     @Autowired
     private EventRepository eventRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     static ModelMapper modelMapper = new ModelMapper();
 
@@ -42,6 +47,11 @@ public class EventServiceImpl implements EventService {
         EventEntity eventEntity = modelMapper.map(eventRequest, EventEntity.class);
         EventEntity dbEntity = eventRepository.getEventEntityByEventId(eventRequest.getEventId());
         eventEntity.setId(dbEntity.getId());
+        CategoryEntity dbCatEntity = categoryRepository.getCategoryEntitiesByCategoryId(eventEntity.getCategory().getCategoryId());
+        dbCatEntity = categoryRepository.save(dbCatEntity);
+        eventEntity.setCategory(dbCatEntity);
+
+
         eventEntity = eventRepository.save(eventEntity);
         return modelMapper.map(eventEntity, EventResponse.class);
 
@@ -80,29 +90,34 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<EventResponse> getPopularEvents() {
+        // List of events with votes more than 5
         int numberOfVotesThresholdToBePopular = 5;
         return eventRepository.findEventEntitiesByVotesGreaterThan(numberOfVotesThresholdToBePopular).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
     }
 
     @Override
     public List<EventResponse> getUpcomingEvents() {
-        //List of events from today and onward
-
+        //List of events from today and onward 2 weeks
         long millis = System.currentTimeMillis();
-        Date date = new Date(millis);
-        return eventRepository.findEventEntitiesByStartDateTimeAfter(date).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
+        Date todayDate = new Date(millis);
+        Date endDate= Date.from(LocalDate.now().plusWeeks(2).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        return eventRepository.findEventEntitiesByStartDateTimeBetween(todayDate, endDate).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
+
+
     }
 
     @Override
     public List<EventResponse> getNewEvents() {
-        //List of events from staring one month before today and onward
-        Date startDate= Date.from(LocalDate.now().minusMonths(1).atStartOfDay(ZoneId.systemDefault()).toInstant());
-        System.out.println(startDate);
-        Date endDate= Date.from(LocalDate.now().plusMonths(6).atStartOfDay(ZoneId.systemDefault()).toInstant());
-        System.out.println(endDate);
+        //List of events from staring today and onward
+        //Date startDate= Date.from(LocalDate.now().minusMonths(1).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        long millis = System.currentTimeMillis();
+        Date todayDate = new Date(millis);
+        System.out.println(todayDate);
+        // Date endDate= Date.from(LocalDate.now().plusMonths(6).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        // System.out.println(endDate);
 
-        //return eventRepository.findEventEntitiesByStartDateTimeBetween(startDate, endDate).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
-        return eventRepository.findEventEntitiesByStartDateTimeAfter(startDate).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
+        // return eventRepository.findEventEntitiesByStartDateTimeBetween(startDate, endDate).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
+        return eventRepository.findEventEntitiesByStartDateTimeAfter(todayDate).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
 
 
     }

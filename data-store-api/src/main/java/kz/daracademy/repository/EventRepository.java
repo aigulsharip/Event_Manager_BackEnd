@@ -1,7 +1,6 @@
 package kz.daracademy.repository;
 
-import kz.daracademy.model.EventEntity;
-import kz.daracademy.model.EventResponse;
+import kz.daracademy.model.event.EventEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;
