@@ -1,0 +1,177 @@
+CREATE Event #1
+http://localhost:8082/data-store-api/event
+{
+    "title": "Авторский вечер группы «Saz&Soul»",
+    "description": "Қазақконцерт приглашает вас на новый авторский концерт группы «Saz&soul»!«Saz&soul» - это новое «дыхание» казахстанской музыки. ",
+    "startDateTime": "2022-05-10T00:00:00.000+00:00",
+    "endDateTime": "2022-05-10T00:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/files/media/avtorskiy-vecher-via-sazsoul.jpeg", "https://sxodim.com/uploads/posts/2021/06/01/optimized/4152f17bff581c67480bb243c8f05dc8_1522x570-q-85.jpg"],
+    "votes": 10,
+    "category": {
+        "id": 1,
+        "categoryId": "1",
+        "name": "Концерт",
+        "orderInSorting": "1"
+    },
+    "user": {
+        "id": 2,
+        "userId": "2",
+        "fullName": "Serik Bolatov",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+CREATE Event #2
+{
+        "title": "Вечер произведений LUDOVICO EINAUDI в Нур-Султане",
+        "description": "Лучшие произведения итальянского композитора в исполнении камерного ансамбля из лучших оркестров нашей страны",
+        "startDateTime": "2022-05-29T00:00:00.000+00:00",
+        "endDateTime": "2022-05-29T00:00:00.000+00:00",
+        "pictures": ["https://ticketon.kz/media/upload/1835u53673_vecher-proizvedeniy-ludovico-einaudi-nur-sultan.jpeg","https://ludovicoeinaudi.com/wp-content/uploads/2018/05/05.jpg"],
+        "votes": 3,
+        "category": {
+            "id": 1,
+            "categoryId": "1",
+            "name": "Концерт",
+            "orderInSorting": "1"
+        },
+        "user": {
+            "id": 3,
+            "userId": "3",
+            "fullName": "Arman Saparov",
+		"email": "abulai2001@gmail.com"
+
+        }
+    }
+
+
+CREATE Event #3
+{
+        "title": "Алматыма Арнау (AstanaBallet)",
+        "description": "Большие гастроли театра «Astana Ballet» в городе Алматы.Балетная труппа «Астана Балет» выступит с грандиозными гастролями на сцене нового театра «ALMATY THEATRE»",
+        "startDateTime": "2022-05-18T00:00:00.000+00:00",
+        "endDateTime": "2022-05-18T00:00:00.000+00:00",
+        "pictures": ["https://ticketon.kz/media/upload/30812u45664_almatyma-arnau-astanaballet212.jpg","https://lmusic.kz/images/cover/arnau-almatym.jpeg"],
+        "votes": 54,
+        "category": {
+            "id": 1,
+            "categoryId": "1",
+            "name": "Концерт",
+            "orderInSorting": "1"
+        },
+        "user": {
+            "id": 4,
+            "userId": "4",
+            "fullName": "Aidana Samatova",
+		"email": "abulai2001@gmail.com"
+
+        }
+}
+
+
+CREATE Event #4
+
+{
+    "title": "Творческий вечер Ермека Турсунова",
+    "description": "Ермек Турсунов является одним из наиболее заметных представителей современной казахской творческой интеллигенции. Его фильмы получили всеобщее признание не только внутри страны, но и широко за рубежом. ",
+    "startDateTime": "2022-05-25T00:00:00.000+00:00",
+    "endDateTime": "2022-05-25T00:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/media/upload/29426u45664_ermek-tursunov-i-gabit-nesipbaev-2.jpg", "https://static.elitar.kz/article/5efeadabb4ab2.jpg"],
+    "votes": 345,
+    "category": {
+        "id": 1,
+        "categoryId": "1",
+        "name": "Концерт",
+        "orderInSorting": "1"
+    },
+    "user": {
+        "id": 3,
+        "userId": "3",
+        "fullName": "Arman Saparov",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+
+
+CREATE Event #5
+{
+    "title": "Выставка товаров отечественных производителей «Ulttyq Onim»",
+    "description": "В программе выставки: лотерея для всех посетителей выставки, бесплатные мастер-классах от топовых спикеров по smm",
+    "startDateTime": "2022-05-26T00:00:00.000+00:00",
+    "endDateTime": "2022-05-26T00:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/media/upload/32291u53798_vystavka-5623.jpeg", "https://ticketon.kz/media/upload/32291u53798_vystavka-5623.jpeg"],
+    "votes": 153,
+    "category": {
+        "id": 2,
+        "categoryId": "2",
+        "name": "Выставки",
+        "orderInSorting": "2"
+    },
+    "user": {
+        "id": 2,
+        "userId": "2",
+        "fullName": "Serik Bolatov",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+
+
+
+CREATE Event #6
+{
+    "title": "Доктор Стрэндж: В мультивселенной безумия",
+    "description": "Продолжение магических приключений Доктора Стрэнджа в новых мистических мирах и в противостоянии с новыми врагами."
+    "startDateTime": "2022-05-16T00:00:00.000+00:00",
+    "endDateTime": "2022-05-16T00:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/files/media/doktor-strendzh-i-multivselennaya-bezumiya.jpg", "https://ticketon.kz/files/media/doktor-strendzh-i-multivselennaya-bezumiya.jpg"],
+    "votes": 123,
+    "category": {
+        "id": 4,
+        "categoryId": "4",
+        "name": "Кино",
+        "orderInSorting": "4"
+    },
+    "user": {
+        "id": 2,
+        "userId": "2",
+        "fullName": "Serik Bolatov",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+
+CREATE Event #7
+
+{
+    "title": "Отчаянные мстители",
+    "description": "Каждому из четырёх артистов маленького бродячего цирка достался от природы особый дар — суперспособность",
+    "startDateTime": "2022-05-16T00:00:00.000+00:00",
+    "endDateTime": "2022-05-16T00:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/media/upload/32273u54056_otchayannye-mstiteli.jpg", "https://ticketon.kz/media/upload/32273u54056_otchayannye-mstiteli.jpg"],
+    "votes": 15,
+    "category": {
+        "id": 4,
+        "categoryId": "4",
+        "name": "Кино",
+        "orderInSorting": "4"
+    },
+    "user": {
+        "id": 2,
+        "userId": "2",
+        "fullName": "Serik Bolatov",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
