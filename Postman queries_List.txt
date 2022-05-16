@@ -1,0 +1,88 @@
+###############GET############################
+Check
+http://localhost:8082/data-store-api/event/check
+
+Get all
+http://localhost:8082/data-store-api/event/all
+
+Get By EventId
+http://localhost:8082/data-store-api/event?eventId=9d23235d-7025-45d3-9fa4-59cddb828023
+
+####FILTER####
+Filter By Category Id (from 1 to 5)
+http://localhost:8082/data-store-api/event/filter?categoryId=5
+
+Filter By Category Name (Концерты, Выставки, Театр, Кино, Спорт)
+http://localhost:8082/data-store-api/event/filter/categoryName?categoryName=Концерты
+
+
+Filter Events by Sections (new, popular or upcoming)
+http://localhost:8082/data-store-api/event/section?sectionName=new
+
+popular: List of events with votes more than 50 and sorted asc by votes
+upcoming: List of events from today and onward 2 weeks, sorted by starting date
+new: List of events from staring today and onward, sorted by starting date
+        
+
+
+###############POST############################
+
+Post to Create Event
+http://localhost:8082/data-store-api/event
+
+Example:
+{
+    "title": "Shamal",
+    "description": "Shamal 2022 - это 5-ти дневное ежегодное событие, которое пройдет во второй раз на территории Кыргызстана, в ходе которого более 3000 участников со всей Центральной Азии посетят две живописные локации",
+    "startDateTime": "2022-04-22T00:16:00.000+00:00",
+    "endDateTime": "2022-04-22T00:17:00.000+00:00",
+    "pictures": ["https://ticketon.kz/files/media/Inversiapolety-na-paraplane.jpg", "https://ticketon.kz/files/media/22384u30705_novyy-proekt-5.jpg", "https://ticketon.kz/files/media/22384u30705_novyy-proekt-7.jpg"],
+    "votes": 58,
+    "category": {
+        "id": 2,
+        "categoryId": "2",
+        "name": "Выставки",
+        "orderInSorting": "2"
+    },
+    "user": {
+        "id": 1,
+        "userId": "1",
+        "fullName": "Admin Admin",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+##########PUT##################################
+http://localhost:8082/data-store-api/event?eventId=9d23235d-7025-45d3-9fa4-59cddb828023
+
+{
+    "title": "Shamal",
+    "description": "Shamal 2022 - это 5-ти дневное ежегодное событие, которое пройдет во второй раз на территории Кыргызстана, в ходе которого более 3000 участников со всей Центральной Азии посетят две живописные локации",
+    "startDateTime": "2022-04-22T03:00:00.000+00:00",
+    "endDateTime": "2022-09-22T14:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/files/media/Inversiapolety-na-paraplane.jpg", "https://ticketon.kz/files/media/22384u30705_novyy-proekt-5.jpg", "https://ticketon.kz/files/media/22384u30705_novyy-proekt-7.jpg"],
+    "votes": 58,
+    "category": {
+        "id": 2,
+        "categoryId": "2",
+        "name": "Выставки",
+        "orderInSorting": "3"
+    },
+    "user": {
+        "id": 1,
+        "userId": "1",
+        "fullName": "Admin Admin",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+
+#############DELETE###################################
+http://localhost:8082/data-store-api/event?eventId=0dd6a24a-adb7-4460-b222-51efea94de4f
+
+
+
