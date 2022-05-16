@@ -1,12 +1,11 @@
 Categories
 
 id  category_id	name  		order_in_sorting
-1   1             Концерты           1
+1   1             Концерты          1
 2   2			Выставки          2
 3   3             Театр             3
 4   4             Кино			4
 5   5             Спорт             5
-6   6             Мастер-классы     6
 
 
 

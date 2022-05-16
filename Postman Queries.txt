@@ -3,8 +3,8 @@ http://localhost:8082/data-store-api/event
 {
     "title": "Авторский вечер группы «Saz&Soul»",
     "description": "Қазақконцерт приглашает вас на новый авторский концерт группы «Saz&soul»!«Saz&soul» - это новое «дыхание» казахстанской музыки. ",
-    "startDateTime": "2022-05-10T00:00:00.000+00:00",
-    "endDateTime": "2022-05-10T00:00:00.000+00:00",
+    "startDateTime": "2022-05-10T12:00:00.000+00:00",
+    "endDateTime": "2022-05-10T14:00:00.000+00:00",
     "pictures": ["https://ticketon.kz/files/media/avtorskiy-vecher-via-sazsoul.jpeg", "https://sxodim.com/uploads/posts/2021/06/01/optimized/4152f17bff581c67480bb243c8f05dc8_1522x570-q-85.jpg"],
     "votes": 10,
     "category": {
@@ -27,8 +27,8 @@ CREATE Event #2
 {
         "title": "Вечер произведений LUDOVICO EINAUDI в Нур-Султане",
         "description": "Лучшие произведения итальянского композитора в исполнении камерного ансамбля из лучших оркестров нашей страны",
-        "startDateTime": "2022-05-29T00:00:00.000+00:00",
-        "endDateTime": "2022-05-29T00:00:00.000+00:00",
+        "startDateTime": "2022-05-29T12:30:00.000+00:00",
+        "endDateTime": "2022-05-29T14:30:00.000+00:00",
         "pictures": ["https://ticketon.kz/media/upload/1835u53673_vecher-proizvedeniy-ludovico-einaudi-nur-sultan.jpeg","https://ludovicoeinaudi.com/wp-content/uploads/2018/05/05.jpg"],
         "votes": 3,
         "category": {
@@ -51,8 +51,8 @@ CREATE Event #3
 {
         "title": "Алматыма Арнау (AstanaBallet)",
         "description": "Большие гастроли театра «Astana Ballet» в городе Алматы.Балетная труппа «Астана Балет» выступит с грандиозными гастролями на сцене нового театра «ALMATY THEATRE»",
-        "startDateTime": "2022-05-18T00:00:00.000+00:00",
-        "endDateTime": "2022-05-18T00:00:00.000+00:00",
+        "startDateTime": "2022-05-18T11:30:00.000+00:00",
+        "endDateTime": "2022-05-18T13:00:00.000+00:00",
         "pictures": ["https://ticketon.kz/media/upload/30812u45664_almatyma-arnau-astanaballet212.jpg","https://lmusic.kz/images/cover/arnau-almatym.jpeg"],
         "votes": 54,
         "category": {
@@ -76,8 +76,8 @@ CREATE Event #4
 {
     "title": "Творческий вечер Ермека Турсунова",
     "description": "Ермек Турсунов является одним из наиболее заметных представителей современной казахской творческой интеллигенции. Его фильмы получили всеобщее признание не только внутри страны, но и широко за рубежом. ",
-    "startDateTime": "2022-05-25T00:00:00.000+00:00",
-    "endDateTime": "2022-05-25T00:00:00.000+00:00",
+    "startDateTime": "2022-05-25T13:00:00.000+00:00",
+    "endDateTime": "2022-05-25T14:30:00.000+00:00",
     "pictures": ["https://ticketon.kz/media/upload/29426u45664_ermek-tursunov-i-gabit-nesipbaev-2.jpg", "https://static.elitar.kz/article/5efeadabb4ab2.jpg"],
     "votes": 345,
     "category": {
@@ -102,8 +102,8 @@ CREATE Event #5
 {
     "title": "Выставка товаров отечественных производителей «Ulttyq Onim»",
     "description": "В программе выставки: лотерея для всех посетителей выставки, бесплатные мастер-классах от топовых спикеров по smm",
-    "startDateTime": "2022-05-26T00:00:00.000+00:00",
-    "endDateTime": "2022-05-26T00:00:00.000+00:00",
+    "startDateTime": "2022-05-26T09:00:00.000+00:00",
+    "endDateTime": "2022-05-26T15:00:00.000+00:00",
     "pictures": ["https://ticketon.kz/media/upload/32291u53798_vystavka-5623.jpeg", "https://ticketon.kz/media/upload/32291u53798_vystavka-5623.jpeg"],
     "votes": 153,
     "category": {
@@ -129,8 +129,8 @@ CREATE Event #6
 {
     "title": "Доктор Стрэндж: В мультивселенной безумия",
     "description": "Продолжение магических приключений Доктора Стрэнджа в новых мистических мирах и в противостоянии с новыми врагами."
-    "startDateTime": "2022-05-16T00:00:00.000+00:00",
-    "endDateTime": "2022-05-16T00:00:00.000+00:00",
+    "startDateTime": "2022-05-22T03:00:00.000+00:00",
+    "endDateTime": "2022-05-22T05:00:00.000+00:00",
     "pictures": ["https://ticketon.kz/files/media/doktor-strendzh-i-multivselennaya-bezumiya.jpg", "https://ticketon.kz/files/media/doktor-strendzh-i-multivselennaya-bezumiya.jpg"],
     "votes": 123,
     "category": {
@@ -155,8 +155,8 @@ CREATE Event #7
 {
     "title": "Отчаянные мстители",
     "description": "Каждому из четырёх артистов маленького бродячего цирка достался от природы особый дар — суперспособность",
-    "startDateTime": "2022-05-16T00:00:00.000+00:00",
-    "endDateTime": "2022-05-16T00:00:00.000+00:00",
+    "startDateTime": "2022-05-19T12:00:00.000+00:00",
+    "endDateTime": "2022-05-19T14:00:00.000+00:00",
     "pictures": ["https://ticketon.kz/media/upload/32273u54056_otchayannye-mstiteli.jpg", "https://ticketon.kz/media/upload/32273u54056_otchayannye-mstiteli.jpg"],
     "votes": 15,
     "category": {
@@ -174,4 +174,204 @@ CREATE Event #7
 
     }
 }
+
+CREATE Event #8
+
+{
+    "title": "Соник 2 в кино",
+    "description": "Поселившись в Грин Хилз, Соник стремится доказать, что у него есть все задатки настоящего героя.",
+    "startDateTime": "2022-05-03T08:00:00.000+00:00",
+    "endDateTime": "2022-05-03T10:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/media/upload/29086u30705_sonik-2-v-kino.jpg", "https://ticketon.kz/files/media/29086u30705_sonik-2-v-kino1.jpg"],
+    "votes": 156,
+    "category": {
+        "id": 4,
+        "categoryId": "4",
+        "name": "Кино",
+        "orderInSorting": "4"
+    },
+    "user": {
+        "id": 6,
+        "userId": "6",
+        "fullName": "Марина Кучук",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+CREATE Event #9
+
+{
+    "title": "I go to school",
+    "description": "Продолжение фильма «Бизнес по-казахски в Турции». Первый сольный проект Еркоша, одного из самых ярких героев франшизы",
+    "startDateTime": "2022-04-08T09:00:00.000+00:00",
+    "endDateTime": "2022-05-16T11:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/media/upload/29562u53673_i-go-to-school2.jpg", "https://ticketon.kz/files/media/29562u53673_i-go-to-school-1.jpg"],
+    "votes": 99,
+    "category": {
+        "id": 4,
+        "categoryId": "4",
+        "name": "Кино",
+        "orderInSorting": "4"
+    },
+    "user": {
+        "id": 2,
+        "userId": "2",
+        "fullName": "Serik Bolatov",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+CREATE Event #10
+
+{
+    "title": "До встречи с Грейс",
+    "description": "Девочка-подросток Грэйс, умирающая от рака, прорывается в похоронное бюро, чтобы узнать, что с ней будет после того, как она умрет",
+    "startDateTime": "2022-06-05T12:00:00.000+00:00",
+    "endDateTime": "2022-07-16T14:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/media/upload/32258u54056_do-vstrechi-s-greys.jpg", "https://ticketon.kz/media/upload/32273u54056_otchayannye-mstiteli.jpg"],
+    "votes": 58,
+    "category": {
+        "id": 4,
+        "categoryId": "4",
+        "name": "Кино",
+        "orderInSorting": "4"
+    },
+    "user": {
+        "id": 2,
+        "userId": "2",
+        "fullName": "Serik Bolatov",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+CREATE Event #11
+
+{
+    "title": "Откуда-куда-зачем",
+    "description": "Где-то на каком-то этаже в какой-то квартире стоит автоответчик. Хозяйка квартиры похоронила подружку, которую и знать почти не знала, не видела много-много последних лет",
+    "startDateTime": "2022-06-05T15:00:00.000+00:00",
+    "endDateTime": "2022-07-16T17:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/files/media/%D0%BE%D0%BA%D0%B7.jpg", "https://ticketon.kz/files/media/26748u45664_otkuda-kuda-zachem-3.jpg"],
+    "votes": 58,
+    "category": {
+        "id": 3,
+        "categoryId": "3",
+        "name": "Театр",
+        "orderInSorting": "3"
+    },
+    "user": {
+        "id": 5,
+        "userId": "5",
+        "fullName": "Sergey Ivanov",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+CREATE Event #12
+
+{
+    "title": "Легенда о Ромео и Джульетте",
+    "description": "«Легенда Ромео и Джульетте» - неожиданная трактовка знаменитой повести Шекспира, где легендарная история любви, рассказана на языке страстного испанского танца",
+    "startDateTime": "2022-05-22T12:00:00.000+00:00",
+    "endDateTime": "2022-05-22T14:30:00.000+00:00",
+    "pictures": ["https://ticketon.kz/media/upload/32258u54056_do-vstrechi-s-greys.jpg", "https://ticketon.kz/media/upload/32273u54056_otchayannye-mstiteli.jpg"],
+    "votes": 67,
+    "category": {
+        "id": 3,
+        "categoryId": "3",
+        "name": "Театр",
+        "orderInSorting": "3"
+    },
+    "user": {
+        "id": 2,
+        "userId": "2",
+        "fullName": "Serik Bolatov",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+CREATE Event #13
+{
+    "title": "Полёты на параплане в тандеме с инструктором от компании ИНВЕРСИЯ + кешбэк 5%",
+    "description": "Полёты на параплане в тандеме с инструктором осуществляются в Алматинской области, на парадельтадроме Ушконыр,который расположен в предгорьях Заилийского Алатау.",
+    "startDateTime": "2022-04-05T03:00:00.000+00:00",
+    "endDateTime": "2022-04-16T15:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/files/media/Inversiapolety-na-paraplane.jpg", "https://ticketon.kz/files/media/22384u30705_novyy-proekt-5.jpg", "https://ticketon.kz/files/media/22384u30705_novyy-proekt-7.jpg"],
+    "votes": 58,
+    "category": {
+        "id": 5,
+        "categoryId": "5",
+        "name": "Спорт",
+        "orderInSorting": "5"
+    },
+    "user": {
+        "id": 1,
+        "userId": "1",
+        "fullName": "Admin Admin",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+CREATE Event #14
+{
+    "title": "Финал Алматинской хоккейной лиги",
+    "description": "22 мая на Halyk Arena состоится ФИНАЛ 6 сезона АХЛ. Вы сможете не только насладиться хоккеем, но и отлично провести время с семьей и друзьями.",
+    "startDateTime": "2022-04-05T12:30:00.000+00:00",
+    "endDateTime": "2022-04-05T14:30:00.000+00:00",
+    "pictures": ["https://ticketon.kz/media/upload/32159u53673_final-almatinskoy-khokkeynoy-ligi-32159.jpg", "https://ticketon.kz/files/media/32159u53673_final-almatinskoy-khokkeynoy-ligi-32159-1.jpg?w=150", "https://ticketon.kz/files/media/32159u53673_final-almatinskoy-khokkeynoy-ligi-32159-4.jpg?w=150"],
+    "votes": 35,
+    "category": {
+        "id": 5,
+        "categoryId": "5",
+        "name": "Спорт",
+        "orderInSorting": "5"
+    },
+    "user": {
+        "id": 1,
+        "userId": "1",
+        "fullName": "Admin Admin",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+CREATE Event #15
+{
+    "title": "Shamal",
+    "description": "Shamal 2022 - это 5-ти дневное ежегодное событие, которое пройдет во второй раз на территории Кыргызстана, в ходе которого более 3000 участников со всей Центральной Азии посетят две живописные локации",
+    "startDateTime": "2022-04-22T03:00:00.000+00:00",
+    "endDateTime": "2022-09-22T14:00:00.000+00:00",
+    "pictures": ["https://ticketon.kz/files/media/Inversiapolety-na-paraplane.jpg", "https://ticketon.kz/files/media/22384u30705_novyy-proekt-5.jpg", "https://ticketon.kz/files/media/22384u30705_novyy-proekt-7.jpg"],
+    "votes": 58,
+    "category": {
+        "id": 2,
+        "categoryId": "2",
+        "name": "Выставки",
+        "orderInSorting": "2"
+    },
+    "user": {
+        "id": 1,
+        "userId": "1",
+        "fullName": "Admin Admin",
+        "email": "abulai2001@gmail.com"
+
+
+    }
+}
+
+
+
+
 
