@@ -16,7 +16,7 @@ id  user_id		full_name  			email
 2   2			Serik Bolatov           abulai2001@gmail.com
 3   3             Arman Saparov           abulai2001@gmail.com
 4   4             Aidana Samatova		abulai2001@gmail.com
-5   5             Сергей Иванов           abulai2001@gmail.com
-6   6             Марина Кучук     		abulai2001@gmail.com
+5   5             Sergey Ivanov           abulai2001@gmail.com
+6   6             Marina Kuchuk     	abulai2001@gmail.com
 
 
