@@ -19,6 +19,7 @@ public class User {
     @Column(unique = true)
     private String userId;
     private String fullName;
+    private String email;
 
 
 }

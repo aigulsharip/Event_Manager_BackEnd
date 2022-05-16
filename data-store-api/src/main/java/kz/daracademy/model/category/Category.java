@@ -13,13 +13,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "categories")
 
-public class CategoryEntity {
+public class Category {
     @Id
     @GeneratedValue
     private Long id;
     @Column(unique = true)
     private String categoryId;
-    private String name;
+    private String categoryName;
     private String orderInSorting;
 
 }

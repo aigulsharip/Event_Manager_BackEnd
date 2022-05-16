@@ -1,6 +1,6 @@
 package kz.daracademy.service.event;
 
-import kz.daracademy.model.category.CategoryEntity;
+import kz.daracademy.model.category.Category;
 import kz.daracademy.model.event.EventEntity;
 import kz.daracademy.model.event.EventRequest;
 import kz.daracademy.model.event.EventResponse;
@@ -47,7 +47,7 @@ public class EventServiceImpl implements EventService {
         EventEntity eventEntity = modelMapper.map(eventRequest, EventEntity.class);
         EventEntity dbEntity = eventRepository.getEventEntityByEventId(eventRequest.getEventId());
         eventEntity.setId(dbEntity.getId());
-        CategoryEntity dbCatEntity = categoryRepository.getCategoryEntitiesByCategoryId(eventEntity.getCategory().getCategoryId());
+        Category dbCatEntity = categoryRepository.getCategoryEntitiesByCategoryId(eventEntity.getCategory().getCategoryId());
         dbCatEntity = categoryRepository.save(dbCatEntity);
         eventEntity.setCategory(dbCatEntity);
 
@@ -84,7 +84,7 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<EventResponse> getEventsByCategoryName(String categoryName) {
-        return eventRepository.findEventEntitiesByCategory_Name(categoryName).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
+        return eventRepository.findEventEntitiesByCategory_CategoryName(categoryName).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
 
     }
 

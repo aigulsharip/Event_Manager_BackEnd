@@ -1,20 +1,25 @@
 package kz.daracademy.model.event;
 
 
-import kz.daracademy.model.category.CategoryEntity;
+import kz.daracademy.model.category.Category;
 import kz.daracademy.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
 @Table(name = "events_table")
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class EventEntity {
     @Id
     @GeneratedValue
@@ -29,13 +34,13 @@ public class EventEntity {
     Date startDateTime;
     @Column
     Date endDateTime;
-    @Column
-    String picture;
+    @ElementCollection
+    List<String> pictures;
     @Column
     Integer votes;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    CategoryEntity category;
+    Category category;
     @ManyToOne(fetch = FetchType.EAGER)
     User user;
 

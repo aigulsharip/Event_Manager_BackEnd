@@ -1,12 +1,13 @@
 package kz.daracademy.model.event;
 
-import kz.daracademy.model.category.CategoryEntity;
+import kz.daracademy.model.category.Category;
 import kz.daracademy.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,11 +24,11 @@ public class EventRequest {
 
     private Date endDateTime;
 
-    private String picture;
+    private List<String> pictures;
 
     private Integer votes;
 
-    private CategoryEntity category;
+    private Category category;
 
     private User user;
 

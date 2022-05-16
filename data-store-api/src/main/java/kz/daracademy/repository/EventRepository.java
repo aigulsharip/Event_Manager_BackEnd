@@ -19,7 +19,7 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
 
     List<EventEntity> findEventEntitiesByCategory_CategoryId(String category_id);
 
-    List<EventEntity> findEventEntitiesByCategory_Name(String categoryName);
+    List<EventEntity> findEventEntitiesByCategory_CategoryName(String categoryName);
 
     List<EventEntity> findEventEntitiesByVotesGreaterThan(Integer votes);
 
