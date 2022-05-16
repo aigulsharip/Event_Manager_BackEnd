@@ -56,18 +56,19 @@ public class EventController {
         eventService.deleteEventByEventId(eventId);
     }
 
+    // filtration by category_id (from 1 to 5)
     @GetMapping("/filter")
     public List<EventResponse> filterEventByCategory(@RequestParam String categoryId) {
         return eventService.getEventsByCategoryId(categoryId);
     }
 
+    // filtration by categoryName (Концерты, Выставки, Театр, Кино, Спорт)
     @GetMapping("/filter/categoryName")
     public List<EventResponse> filterEventByCategoryName(@RequestParam String categoryName) {
         return eventService.getEventsByCategoryName(categoryName);
     }
 
-
-
+    //sectionName = all or anything to display the list all events
     @GetMapping("/section")
     public List<EventResponse> getSections(@RequestParam String sectionName) {
         if (sectionName.equals("popular")) {
@@ -81,7 +82,7 @@ public class EventController {
         return eventService.getAllEvents();
     }
 
-
+    // this one only for checking purpose for kafka producer
     @PostMapping("/send-email")
     public EventResponse sendEvent(@RequestBody EventRequest eventRequest) throws JsonProcessingException {
         EventResponse eventResponse = eventService.createEvent(eventRequest);
@@ -89,15 +90,6 @@ public class EventController {
         return eventResponse;
     }
 
-    /*
-    @PostMapping("/send-email")
-    public ResponseEntity<String> sendClientData(@RequestParam String clientId) throws JsonProcessingException {
-        ClientEmailInfo clientEmailInfo = paymentService.prepareEmailData(clientId);
-        sendService.send(objectMapper.writeValueAsString(clientEmailInfo));
-        return new ResponseEntity<>("Mail Sent Succesfully", HttpStatus.OK);
-    }
-
-     */
 
 
 

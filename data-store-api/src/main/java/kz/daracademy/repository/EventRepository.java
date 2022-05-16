@@ -2,12 +2,15 @@ package kz.daracademy.repository;
 
 import kz.daracademy.model.event.EventEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
 @Transactional
+@Repository
 public interface EventRepository extends JpaRepository<EventEntity, Long> {
 
     EventEntity getEventEntityByEventId (String eventId);
@@ -21,11 +24,14 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
 
     List<EventEntity> findEventEntitiesByCategory_CategoryName(String categoryName);
 
-    List<EventEntity> findEventEntitiesByVotesGreaterThan(Integer votes);
+    List<EventEntity> findEventEntitiesByVotesGreaterThanOrderByVotesAsc(Integer votes);
 
     List<EventEntity> findEventEntitiesByStartDateTimeAfter(Date date);
 
-    List<EventEntity> findEventEntitiesByStartDateTimeBetween(Date startDate, Date endDate);
+    List<EventEntity> findEventEntitiesByStartDateTimeAfterOrderByStartDateTime(Date date);
+
+
+    List<EventEntity> findEventEntitiesByStartDateTimeBetweenOrderByStartDateTime(Date startDate, Date endDate);
 
 
 

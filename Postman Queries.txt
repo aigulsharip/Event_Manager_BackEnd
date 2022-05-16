@@ -327,8 +327,8 @@ CREATE Event #14
 {
     "title": "Финал Алматинской хоккейной лиги",
     "description": "22 мая на Halyk Arena состоится ФИНАЛ 6 сезона АХЛ. Вы сможете не только насладиться хоккеем, но и отлично провести время с семьей и друзьями.",
-    "startDateTime": "2022-04-05T12:30:00.000+00:00",
-    "endDateTime": "2022-04-05T14:30:00.000+00:00",
+    "startDateTime": "2022-07-05T12:30:00.000+00:00",
+    "endDateTime": "2022-07-05T14:30:00.000+00:00",
     "pictures": ["https://ticketon.kz/media/upload/32159u53673_final-almatinskoy-khokkeynoy-ligi-32159.jpg", "https://ticketon.kz/files/media/32159u53673_final-almatinskoy-khokkeynoy-ligi-32159-1.jpg?w=150", "https://ticketon.kz/files/media/32159u53673_final-almatinskoy-khokkeynoy-ligi-32159-4.jpg?w=150"],
     "votes": 35,
     "category": {
@@ -351,8 +351,8 @@ CREATE Event #15
 {
     "title": "Shamal",
     "description": "Shamal 2022 - это 5-ти дневное ежегодное событие, которое пройдет во второй раз на территории Кыргызстана, в ходе которого более 3000 участников со всей Центральной Азии посетят две живописные локации",
-    "startDateTime": "2022-04-22T03:00:00.000+00:00",
-    "endDateTime": "2022-09-22T14:00:00.000+00:00",
+    "startDateTime": "2022-07-04T03:00:00.000+00:00",
+    "endDateTime": "2022-07-09T14:00:00.000+00:00",
     "pictures": ["https://ticketon.kz/files/media/Inversiapolety-na-paraplane.jpg", "https://ticketon.kz/files/media/22384u30705_novyy-proekt-5.jpg", "https://ticketon.kz/files/media/22384u30705_novyy-proekt-7.jpg"],
     "votes": 58,
     "category": {
