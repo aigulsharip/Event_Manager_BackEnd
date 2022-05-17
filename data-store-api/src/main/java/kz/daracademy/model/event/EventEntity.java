@@ -1,11 +1,16 @@
-package kz.daracademy.model;
+package kz.daracademy.model.event;
 
 
+import kz.daracademy.model.category.Category;
+import kz.daracademy.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,24 +26,25 @@ public class EventEntity {
     private Long id;
     @Column(unique = true)
     String eventId;
-
     @Column
     String title;
-
     @Column
     String description;
-
     @Column
     Date startDateTime;
-
     @Column
     Date endDateTime;
-
-    @Column
-    String picture;
-
+    @ElementCollection
+    List<String> pictures;
     @Column
     Integer votes;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    Category category;
+    @ManyToOne(fetch = FetchType.EAGER)
+    User user;
+
+
 
 
 

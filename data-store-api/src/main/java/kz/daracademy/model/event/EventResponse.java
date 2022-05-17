@@ -1,10 +1,13 @@
-package kz.daracademy.model;
+package kz.daracademy.model.event;
 
+import kz.daracademy.model.category.Category;
+import kz.daracademy.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +24,12 @@ public class EventResponse {
 
     private Date endDateTime;
 
-    private String picture;
+    private List<String> pictures;
 
     Integer votes;
+
+    private Category category;
+
+    private User user;
+
 }
