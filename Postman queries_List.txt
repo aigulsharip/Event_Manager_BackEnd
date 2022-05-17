@@ -21,8 +21,7 @@ http://localhost:8082/data-store-api/event/section?sectionName=new
 
 popular: List of events with votes more than 50 and sorted asc by votes
 upcoming: List of events from today and onward 2 weeks, sorted by starting date
-new: List of events from staring today and onward, sorted by starting date
-        
+new: List of events that was posted 2 weeks before , sorted by posted date
 
 
 ###############POST############################
