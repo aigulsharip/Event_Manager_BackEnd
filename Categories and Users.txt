@@ -6,16 +6,79 @@ id  category_id	name  		order_in_sorting
 3   3             Театр             3
 4   4             Кино			4
 5   5             Спорт             5
+6   6             Мастер-классы     6
+
+{
+        "categoryId": "1",
+        "categoryName": "Концерты",
+        "orderInSorting": "1"
+    },
+    {
+        "categoryId": "2",
+        "categoryName": "Выставки",
+        "orderInSorting": "2"
+    },
+    {
+        "categoryId": "3",
+        "categoryName": "Театр",
+        "orderInSorting": "3"
+    },
+    {
+        "categoryId": "4",
+        "categoryName": "Кино",
+        "orderInSorting": "4"
+    },
+    {
+        "categoryId": "5",
+        "categoryName": "Спорт",
+        "orderInSorting": "5"
+    },
+    {
+        "categoryId": "6",
+        "categoryName": "Мастер-классы",
+        "orderInSorting": "6"
+    }
 
 
 
 Users
 id  user_id		full_name  			email
-1   1             Admin Admin             abulai2001@gmail.com
-2   2			Serik Bolatov           abulai2001@gmail.com
-3   3             Arman Saparov           abulai2001@gmail.com
-4   4             Aidana Samatova		abulai2001@gmail.com
-5   5             Sergey Ivanov           abulai2001@gmail.com
-6   6             Marina Kuchuk     	abulai2001@gmail.com
+1   1             Admin Admin             sharipaigul@gmail.com
+2   2			Serik Bolatov           sharipaigul@gmail.com
+3   3             Arman Saparov           sharipaigul@gmail.com
+4   4             Aidana Samatova		sharipaigul@gmail.com
+5   5             Sergey Ivanov           sharipaigul@gmail.com
+6   6             Marina Kuchuk     	sharipaigul@gmail.com
+
+{
+        "userId": "2",
+        "fullName": "Serik Bolatov",
+        "email": "sharipaigul@gmail.com"
+    },
+    {
+        "userId": "3",
+        "fullName": "Arman Saparov",
+        "email": "sharipaigul@gmail.com"
+    },
+    {
+        "userId": "4",
+        "fullName": "Aidana Samatova",
+        "email": "sharipaigul@gmail.com"
+    },
+    {
+        "userId": "5",
+        "fullName": "Sergey Ivanov",
+        "email": "sharipaigul@gmail.com"
+    },
+    {
+        "userId": "1",
+        "fullName": "Admin Admin",
+        "email": "sharipaigul@gmail.com"
+    },
+    {
+        "userId": "6",
+        "fullName": "Marina Kuchuk     ",
+        "email": "sharipaigul@gmail.com"
+    }
 
 
