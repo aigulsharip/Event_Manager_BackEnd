@@ -12,9 +12,9 @@ import org.springframework.data.elasticsearch.config.AbstractElasticsearchConfig
         @Override
         public RestHighLevelClient elasticsearchClient() {
             ClientConfiguration clientConfiguration = ClientConfiguration.builder()
-                    .connectedTo("")
+                    .connectedTo("commentdeployment.es.us-central1.gcp.cloud.es.io:9243")
                     .usingSsl()
-                    .withBasicAuth("elastic", "")
+                    .withBasicAuth("elastic", "fWFQ5E09HoivnlqwSNA6SnxF")
                     .build();
 
             return RestClients.create(clientConfiguration).rest();

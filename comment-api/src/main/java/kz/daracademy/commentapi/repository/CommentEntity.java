@@ -8,11 +8,14 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
+
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(indexName="comments")
 public class CommentEntity {
+
 
     @Id
     @Field(type = FieldType.Keyword)
@@ -29,9 +32,6 @@ public class CommentEntity {
     @Field(type = FieldType.Keyword)
     private String eventId;
 
-
     @Field(type = FieldType.Keyword)
     private String parentCommentId;
-
-
 }

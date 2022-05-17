@@ -1,5 +1,6 @@
 package kz.daracademy.commentapi.model;
 
+import kz.daracademy.commentapi.repository.CommentEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
