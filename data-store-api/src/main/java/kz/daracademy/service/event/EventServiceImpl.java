@@ -1,6 +1,5 @@
 package kz.daracademy.service.event;
 
-import kz.daracademy.model.category.Category;
 import kz.daracademy.model.event.EventEntity;
 import kz.daracademy.model.event.EventRequest;
 import kz.daracademy.model.event.EventResponse;
@@ -47,11 +46,6 @@ public class EventServiceImpl implements EventService {
         EventEntity eventEntity = modelMapper.map(eventRequest, EventEntity.class);
         EventEntity dbEntity = eventRepository.getEventEntityByEventId(eventRequest.getEventId());
         eventEntity.setId(dbEntity.getId());
-        Category dbCatEntity = categoryRepository.getCategoryEntitiesByCategoryId(eventEntity.getCategory().getCategoryId());
-        dbCatEntity = categoryRepository.save(dbCatEntity);
-        eventEntity.setCategory(dbCatEntity);
-
-
         eventEntity = eventRepository.save(eventEntity);
         return modelMapper.map(eventEntity, EventResponse.class);
 
@@ -100,7 +94,7 @@ public class EventServiceImpl implements EventService {
         //List of events from today and onward 2 weeks
         long millis = System.currentTimeMillis();
         Date todayDate = new Date(millis);
-        Date endDate= Date.from(LocalDate.now().plusWeeks(2).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date endDate = Date.from(LocalDate.now().plusWeeks(2).atStartOfDay(ZoneId.systemDefault()).toInstant());
         return eventRepository.findEventEntitiesByStartDateTimeBetweenOrderByStartDateTime(todayDate, endDate).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
 
 

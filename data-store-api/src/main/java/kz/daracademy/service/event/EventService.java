@@ -12,8 +12,9 @@ public interface EventService {
 
     List<EventResponse> getAllEvents();
 
-    EventResponse getEventById (String eventId);
-    void deleteEventByEventId (String eventId);
+    EventResponse getEventById(String eventId);
+
+    void deleteEventByEventId(String eventId);
 
     List<EventResponse> getEventsByCategoryId(String categoryId);
 
@@ -25,11 +26,6 @@ public interface EventService {
     List<EventResponse> getUpcomingEvents();
 
     List<EventResponse> getNewEvents();
-
-
-
-
-
 
 
 }

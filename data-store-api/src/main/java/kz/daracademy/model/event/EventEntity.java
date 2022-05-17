@@ -1,16 +1,13 @@
 package kz.daracademy.model.event;
 
 
-import kz.daracademy.model.category.Category;
-import kz.daracademy.model.user.User;
+import kz.daracademy.model.category.CategoryEntity;
+import kz.daracademy.model.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -40,15 +37,9 @@ public class EventEntity {
     Integer votes;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    Category category;
+    CategoryEntity category;
     @ManyToOne(fetch = FetchType.EAGER)
-    User user;
-
-
-
-
-
-
+    UserEntity user;
 
 
 }

@@ -7,8 +7,6 @@ import kz.daracademy.model.event.EventResponse;
 import kz.daracademy.service.event.EventService;
 import kz.daracademy.service.message.SendService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -47,12 +45,12 @@ public class EventController {
     }
 
     @GetMapping()
-    public EventResponse getEventById (@RequestParam String eventId){
+    public EventResponse getEventById(@RequestParam String eventId) {
         return eventService.getEventById(eventId);
     }
 
     @DeleteMapping
-    public void deleteEvent (@RequestParam String eventId) {
+    public void deleteEvent(@RequestParam String eventId) {
         eventService.deleteEventByEventId(eventId);
     }
 
@@ -75,8 +73,7 @@ public class EventController {
             return eventService.getPopularEvents();
         } else if (sectionName.equals("upcoming")) {
             return eventService.getUpcomingEvents();
-        }
-        else if (sectionName.equals("new")) {
+        } else if (sectionName.equals("new")) {
             return eventService.getNewEvents();
         }
         return eventService.getAllEvents();
@@ -89,10 +86,6 @@ public class EventController {
         sendService.send(objectMapper.writeValueAsString(eventResponse));
         return eventResponse;
     }
-
-
-
-
 
 
 }
