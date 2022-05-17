@@ -28,6 +28,9 @@ public class EventRequest {
 
     private Integer votes;
 
+    Date postedDate;
+
+
     private CategoryEntity category;
 
     private UserEntity user;

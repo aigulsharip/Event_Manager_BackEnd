@@ -35,6 +35,8 @@ public class EventEntity {
     List<String> pictures;
     @Column
     Integer votes;
+    @Column
+    Date postedDate;
 
     @ManyToOne(fetch = FetchType.EAGER)
     CategoryEntity category;

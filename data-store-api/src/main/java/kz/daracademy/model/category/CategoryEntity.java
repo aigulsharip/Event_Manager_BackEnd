@@ -11,7 +11,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "categories")
-
 public class CategoryEntity {
     @Id
     @GeneratedValue

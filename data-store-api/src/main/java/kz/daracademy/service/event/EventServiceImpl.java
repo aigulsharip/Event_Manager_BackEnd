@@ -102,16 +102,10 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<EventResponse> getNewEvents() {
-        //List of events from staring today and onward, sorted by starting date
-        //Date startDate= Date.from(LocalDate.now().minusMonths(1).atStartOfDay(ZoneId.systemDefault()).toInstant());
-        long millis = System.currentTimeMillis();
-        Date todayDate = new Date(millis);
-        System.out.println(todayDate);
-        // Date endDate= Date.from(LocalDate.now().plusMonths(6).atStartOfDay(ZoneId.systemDefault()).toInstant());
-        // System.out.println(endDate);
-
-        // return eventRepository.findEventEntitiesByStartDateTimeBetween(startDate, endDate).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
-        return eventRepository.findEventEntitiesByStartDateTimeAfterOrderByStartDateTime(todayDate).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
+        //List of events that was posted 2 weeks before , sorted by posted date
+        Date postedDate2weeksBefore= Date.from(LocalDate.now().minusWeeks(2).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        System.out.println(postedDate2weeksBefore);
+        return eventRepository.findEventEntitiesByPostedDateAfterOrderByPostedDate(postedDate2weeksBefore).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
 
 
     }
