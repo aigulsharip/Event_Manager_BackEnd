@@ -84,4 +84,21 @@ http://localhost:8082/data-store-api/event?eventId=9d23235d-7025-45d3-9fa4-59cdd
 http://localhost:8082/data-store-api/event?eventId=0dd6a24a-adb7-4460-b222-51efea94de4f
 
 
+#############Notificaton####################
+Email notification for creating events:
+POST:http://localhost:8082/data-store-api/event/notification/send-event?eventId=a5a5369f-1152-4887-b3c3-be2909df55bb
+
+Output of Query: email notification from 
+dareventmanager@gmail.com
+Subject: Уведомление: вы создали новое мероприятие
+Message:
+Добрый день, Серик Болатов!
+
+Вы создали новое мероприятие с названием Отчаянные мстители.
+Событие опубликовано в Thu May 05 09:00:00 ALMT 2022 .
+Мероприятие состоится в Mon May 16 06:00:00 ALMT 2022.
+
+
+
+
 
