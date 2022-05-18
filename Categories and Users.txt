@@ -42,43 +42,34 @@ id  category_id	name  		order_in_sorting
 
 
 Users
-id  user_id		full_name  			email
-1   1             Admin Admin             sharipaigul@gmail.com
-2   2			Serik Bolatov           sharipaigul@gmail.com
-3   3             Arman Saparov           sharipaigul@gmail.com
-4   4             Aidana Samatova		sharipaigul@gmail.com
-5   5             Sergey Ivanov           sharipaigul@gmail.com
-6   6             Marina Kuchuk     	sharipaigul@gmail.com
 
 {
         "userId": "2",
-        "fullName": "Serik Bolatov",
-        "email": "sharipaigul@gmail.com"
+        "fullName": "Серик Болатов",
+        "email": "aigul.sharip@nu.edu.kz"
     },
     {
         "userId": "3",
-        "fullName": "Arman Saparov",
-        "email": "sharipaigul@gmail.com"
-    },
-    {
-        "userId": "4",
-        "fullName": "Aidana Samatova",
-        "email": "sharipaigul@gmail.com"
+        "fullName": "Арман Сапаров",
+        "email": "aigul.sharip@nu.edu.kz"
     },
     {
         "userId": "5",
-        "fullName": "Sergey Ivanov",
-        "email": "sharipaigul@gmail.com"
-    },
-    {
-        "userId": "1",
-        "fullName": "Admin Admin",
-        "email": "sharipaigul@gmail.com"
+        "fullName": "Сергей Иванов",
+        "email": "aigul.sharip@nu.edu.kz"
     },
     {
         "userId": "6",
-        "fullName": "Marina Kuchuk     ",
-        "email": "sharipaigul@gmail.com"
+        "fullName": "Марина Кучук",
+        "email": "aigul.sharip@nu.edu.kz"
+    },
+    {
+        "userId": "4",
+        "fullName": "Айдана Саматова",
+        "email": "aigul.sharip@nu.edu.kz"
+    },
+    {
+        "userId": "1",
+        "fullName": "Админ",
+        "email": "aigul.sharip@nu.edu.kz"
     }
-
-

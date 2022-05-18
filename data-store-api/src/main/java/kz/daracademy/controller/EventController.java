@@ -2,11 +2,14 @@ package kz.daracademy.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import kz.daracademy.model.event.EventNotificationInfo;
 import kz.daracademy.model.event.EventRequest;
 import kz.daracademy.model.event.EventResponse;
 import kz.daracademy.service.event.EventService;
 import kz.daracademy.service.message.SendService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -80,11 +83,18 @@ public class EventController {
     }
 
     // this one only for checking purpose for kafka producer
-    @PostMapping("/send-email")
-    public EventResponse sendEvent(@RequestBody EventRequest eventRequest) throws JsonProcessingException {
-        EventResponse eventResponse = eventService.createEvent(eventRequest);
-        sendService.send(objectMapper.writeValueAsString(eventResponse));
-        return eventResponse;
+    @PostMapping("/notification/send-event")
+    public ResponseEntity<String> sendEventData(@RequestParam String eventId) throws JsonProcessingException {
+        EventNotificationInfo eventNotificationInfo = new EventNotificationInfo();
+        EventResponse event = eventService.getEventById(eventId);
+        eventNotificationInfo.setTitle(event.getTitle());
+        eventNotificationInfo.setName(event.getUser().getFullName());
+        eventNotificationInfo.setEmail(event.getUser().getEmail());
+        eventNotificationInfo.setPostedDate(event.getPostedDate());
+        eventNotificationInfo.setStartDateTime(event.getStartDateTime());
+
+        sendService.send(objectMapper.writeValueAsString(eventNotificationInfo));
+        return new ResponseEntity<>("Mail Sent Succesfully", HttpStatus.OK);
     }
 
 
