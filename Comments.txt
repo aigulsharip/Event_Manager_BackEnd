@@ -1,0 +1,91 @@
+#############################################################################################
+Comment for Event
+http://localhost:8082/comment-api/comment/eventId?eventId=56c68f98-337b-4eb1-b6fb-1d29adce37d4
+
+{
+        "commentId": "e5ae80e9-3fa4-46f9-a5a4-f915097f07e4",
+        "text": "It is interesting",
+        "userId": "2",
+        "eventId": "56c68f98-337b-4eb1-b6fb-1d29adce37d4",
+        "parentCommentId": null
+}
+#############################################################################################
+Comment for Event
+
+http://localhost:8082/comment-api/comment/eventId?eventId=991ccfc3-7b59-42e1-96fe-a4889d3d4c79
+ {
+        "commentId": "e6cb7172-b34b-463b-bb5d-e0824aee04a8",
+        "text": "Это Второй Ответ На Третьи Коммент",
+        "userId": "3",
+        "eventId": "991ccfc3-7b59-42e1-96fe-a4889d3d4c79",
+        "parentCommentId": "e827e7a6-4b75-489d-a56f-289e4cb8a58f"
+    },
+    {
+        "commentId": "e827e7a6-4b75-489d-a56f-289e4cb8a58f",
+        "text": "This will be main comment for event",
+        "userId": "3",
+        "eventId": "991ccfc3-7b59-42e1-96fe-a4889d3d4c79",
+        "parentCommentId": null
+    }
+
+#############################################################################################
+Comment for Event
+
+http://localhost:8082/comment-api/comment/eventId?eventId=806ad324-b6fb-453e-b9a9-550192b13b45
+{
+        "commentId": "44221266-3dd8-4d96-b573-24b4c5735544",
+        "text": "Это Ответ На Третьи Коммент",
+        "userId": "4",
+        "eventId": "806ad324-b6fb-453e-b9a9-550192b13b45",
+        "parentCommentId": "db101102-f715-4fac-b2c1-9db988d0ba23"
+    },
+    {
+        "commentId": "67a1d915-765f-46c7-84f6-1f743846f101",
+        "text": "Это Первый Главный коммент на Эвент4",
+        "userId": "3",
+        "eventId": "806ad324-b6fb-453e-b9a9-550192b13b45",
+        "parentCommentId": null
+    },
+    {
+        "commentId": "e0a9364f-7cc2-4838-ac73-6a72b2704f49",
+        "text": "Это Второй Главный коммент на Эвент4",
+        "userId": "1",
+        "eventId": "806ad324-b6fb-453e-b9a9-550192b13b45",
+        "parentCommentId": null
+    },
+    {
+        "commentId": "db101102-f715-4fac-b2c1-9db988d0ba23",
+        "text": "Это Третьи Главный коммент на Эвент4",
+        "userId": "2",
+        "eventId": "806ad324-b6fb-453e-b9a9-550192b13b45",
+        "parentCommentId": null
+    }
+
+
+
+#############################################################################################
+Comment for Event
+
+
+    {
+        "commentId": "b0810889-6903-4d5b-ad5b-be4f1f658673",
+        "text": "Yes, looking forward to",
+        "userId": "3",
+        "eventId": "9d23235d-7025-45d3-9fa4-59cddb828023",
+        "parentCommentId": "66e0df1b-19c4-43fc-9ec4-218060fec522"
+    },
+    {
+        "commentId": "6882d959-c0c4-4ca6-ac9b-05fc3b7728f1",
+        "text": "Checking, can i reply?",
+        "userId": "2",
+        "eventId": "9d23235d-7025-45d3-9fa4-59cddb828023",
+        "parentCommentId": null
+    },
+    {
+        "commentId": "66e0df1b-19c4-43fc-9ec4-218060fec522",
+        "text": "Cool Event",
+        "userId": "3",
+        "eventId": "9d23235d-7025-45d3-9fa4-59cddb828023",
+        "parentCommentId": null
+    }
+]

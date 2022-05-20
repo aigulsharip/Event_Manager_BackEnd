@@ -1,5 +1,6 @@
 package kz.daracademy.service.message;
 
+import kz.daracademy.model.CommentNotificationInfo;
 import kz.daracademy.model.EmailMessage;
 import kz.daracademy.model.EventNotificationInfo;
 import kz.daracademy.service.email.EmailSenderService;
@@ -19,10 +20,14 @@ public class ConsumeServiceImpl implements ConsumeService {
     @Override
     @KafkaListener(id = "${spring.kafka.consumer.group-id}", topics = "${spring.kafka.topic.in}",
             containerFactory = "singleFactory")
-    public void consumeEmailInfo(ClientEmailInfo emailInfo) {
-        EmailMessage emailMessage = emailSenderService.renderEmail(emailInfo);
+
+
+    public void consumeEventInfo(EventNotificationInfo eventNotificationInfo) {
+        EmailMessage emailMessage = emailSenderService.renderEventEmail(eventNotificationInfo);
         emailSenderService.sendEmail(emailMessage.getTo(), emailMessage.getSubject(), emailMessage.getMessage());
-        log.info("Message: {} successfully consumed", emailInfo);
+        log.info("Message: {} successfully consumed", eventNotificationInfo);
+
+
     }
 
      */
@@ -30,11 +35,11 @@ public class ConsumeServiceImpl implements ConsumeService {
     @Override
     @KafkaListener(id = "${spring.kafka.consumer.group-id}", topics = "${spring.kafka.topic.in}",
             containerFactory = "singleFactory")
-    public void consumeEventInfo(EventNotificationInfo eventNotificationInfo) {
-        EmailMessage emailMessage = emailSenderService.renderEventEmail(eventNotificationInfo);
-        emailSenderService.sendEmail(emailMessage.getTo(), emailMessage.getSubject(), emailMessage.getMessage());
-        log.info("Message: {} successfully consumed", eventNotificationInfo);
+    public void consumeCommentInfo(CommentNotificationInfo commentNotificationInfo) {
+        EmailMessage emailMessage = emailSenderService.renderСommentEmail(commentNotificationInfo);
 
+        emailSenderService.sendEmail(emailMessage.getTo(), emailMessage.getSubject(), emailMessage.getMessage());
+        log.info("Message: {} successfully consumed", commentNotificationInfo);
 
     }
 

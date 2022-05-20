@@ -14,6 +14,6 @@ public class SendServiceImpl implements SendService {
     @Override
     public void send(String message) {
         log.info("Comment: " + message);
-        kafkaTemplate.send("comment_topic", message);
+        kafkaTemplate.send("comment-topic", message);
     }
 }
