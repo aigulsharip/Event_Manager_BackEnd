@@ -1,14 +1,10 @@
 package kz.daracademy.model.event;
 
-import kz.daracademy.model.category.CategoryEntity;
-import kz.daracademy.model.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor

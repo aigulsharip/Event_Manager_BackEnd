@@ -1,12 +1,13 @@
 package kz.daracademy.commentapi.service.comment;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import kz.daracademy.commentapi.model.comment.CommentNotificationInfo;
 import kz.daracademy.commentapi.model.comment.CommentRequest;
 import kz.daracademy.commentapi.model.comment.CommentResponse;
 
 import java.util.List;
 
-public interface CommentService  {
+public interface CommentService {
 
     //create
     CommentResponse createComment(CommentRequest commentRequest) throws JsonProcessingException;
@@ -23,6 +24,7 @@ public interface CommentService  {
 
     //Get Comment by ID
     CommentResponse getCommentById(String commentId);
+
     //Get ALL comments
     List<CommentResponse> getAllCommentsList();
 //    Page<CommentResponse> getAllCommentsPageable(Pageable page);
@@ -37,4 +39,6 @@ public interface CommentService  {
     List<CommentResponse> getCommentsByEventId(String eventId);
 
     List<CommentResponse> getListOfReplyComments();
+
+    CommentNotificationInfo prepareCommentForNotification(String commentId);
 }

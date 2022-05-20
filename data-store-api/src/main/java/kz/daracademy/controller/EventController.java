@@ -84,14 +84,7 @@ public class EventController {
 
     @PostMapping("/notification/send-event")
     public ResponseEntity<String> sendEventData(@RequestParam String eventId) throws JsonProcessingException {
-        EventNotificationInfo eventNotificationInfo = new EventNotificationInfo();
-        EventResponse event = eventService.getEventById(eventId);
-        eventNotificationInfo.setTitle(event.getTitle());
-        eventNotificationInfo.setName(event.getUser().getFullName());
-        eventNotificationInfo.setEmail(event.getUser().getEmail());
-        eventNotificationInfo.setPostedDate(event.getPostedDate());
-        eventNotificationInfo.setStartDateTime(event.getStartDateTime());
-
+        EventNotificationInfo eventNotificationInfo = eventService.prepareEventInfoForNotification(eventId);
         sendService.send(objectMapper.writeValueAsString(eventNotificationInfo));
         return new ResponseEntity<>("Mail Sent Succesfully", HttpStatus.OK);
     }

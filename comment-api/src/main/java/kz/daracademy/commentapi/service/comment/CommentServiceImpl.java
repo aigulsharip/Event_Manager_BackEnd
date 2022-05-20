@@ -2,8 +2,12 @@ package kz.daracademy.commentapi.service.comment;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import kz.daracademy.commentapi.feign.EventFeign;
+import kz.daracademy.commentapi.model.comment.CommentNotificationInfo;
 import kz.daracademy.commentapi.model.comment.CommentRequest;
 import kz.daracademy.commentapi.model.comment.CommentResponse;
+import kz.daracademy.commentapi.model.event.EventResponse;
+import kz.daracademy.commentapi.model.user.UserResponse;
 import kz.daracademy.commentapi.repository.CommentEntity;
 import kz.daracademy.commentapi.repository.CommentRepository;
 import kz.daracademy.commentapi.service.message.SendService;
@@ -22,6 +26,9 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentRepository commentRepository;
 
+    @Autowired
+    private EventFeign eventFeign;
+
 
     ObjectMapper objectMapper = new ObjectMapper();
 
@@ -36,7 +43,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public CommentResponse createComment(CommentRequest commentRequest) throws JsonProcessingException {
-        if(commentRequest.getParentCommentId()!=null){
+        if (commentRequest.getParentCommentId() != null) {
             sendNotification(commentRequest);
         }
         commentRequest.setCommentId(UUID.randomUUID().toString());
@@ -116,16 +123,43 @@ public class CommentServiceImpl implements CommentService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public CommentNotificationInfo prepareCommentForNotification(String commentId) {
+        CommentNotificationInfo commentNotificationInfo = new CommentNotificationInfo();
+        CommentResponse comment = getCommentById(commentId);
+        UserResponse commentator = eventFeign.getUserById(comment.getUserId());
+        String commentatorName = commentator.getFullName();
+        String commentatorEmail = commentator.getEmail();
+        String commentatorText = comment.getText();
+        EventResponse event = eventFeign.getEventById(comment.getEventId());
+        String eventTitle = event.getTitle();
+        if (comment.getParentCommentId() == null) {
+            commentNotificationInfo = new CommentNotificationInfo(commentatorName, commentatorEmail, commentatorText, eventTitle);
+        } else {
+            String parentCommentId = comment.getParentCommentId();
+            CommentResponse parentComment = getCommentById(parentCommentId);
+            UserResponse parentCommentator = eventFeign.getUserById(parentComment.getUserId());
+            String parentCommentatorName = parentCommentator.getFullName();
+            String parentCommentatorEmail = parentCommentator.getEmail();
+            String parentCommentatorText = getCommentById(parentCommentId).getText();
+            commentNotificationInfo = new CommentNotificationInfo(commentatorName, commentatorEmail, commentatorText, eventTitle, parentCommentatorName, parentCommentatorEmail, parentCommentatorText);
+
+        }
+        return commentNotificationInfo;
+    }
+
     public String sendNotification(CommentRequest commentRequest) throws JsonProcessingException {
         List<CommentResponse> listByEvent = getAllCommentsByEventId(commentRequest.getEventId());
-        for(CommentResponse cr : listByEvent){
-            if(cr.getCommentId().equals(commentRequest.getParentCommentId())){
+        for (CommentResponse cr : listByEvent) {
+            if (cr.getCommentId().equals(commentRequest.getParentCommentId())) {
                 cr.getUserId();
                 sendService.send(objectMapper.writeValueAsString(cr));
             }
         }
 
         return "InFO";
-    };
+    }
+
+    ;
 
 }

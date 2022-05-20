@@ -16,12 +16,10 @@ public class ConsumeServiceImpl implements ConsumeService {
     @Autowired
     EmailSenderService emailSenderService;
 
-    /*
+
     @Override
-    @KafkaListener(id = "${spring.kafka.consumer.group-id}", topics = "${spring.kafka.topic.in}",
+    @KafkaListener(id = "${spring.kafka.consumer.group}", topics = "${spring.kafka.topic.event}",
             containerFactory = "singleFactory")
-
-
     public void consumeEventInfo(EventNotificationInfo eventNotificationInfo) {
         EmailMessage emailMessage = emailSenderService.renderEventEmail(eventNotificationInfo);
         emailSenderService.sendEmail(emailMessage.getTo(), emailMessage.getSubject(), emailMessage.getMessage());
@@ -30,7 +28,7 @@ public class ConsumeServiceImpl implements ConsumeService {
 
     }
 
-     */
+
 
     @Override
     @KafkaListener(id = "${spring.kafka.consumer.group-id}", topics = "${spring.kafka.topic.in}",

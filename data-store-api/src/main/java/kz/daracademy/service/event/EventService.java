@@ -1,5 +1,6 @@
 package kz.daracademy.service.event;
 
+import kz.daracademy.model.event.EventNotificationInfo;
 import kz.daracademy.model.event.EventRequest;
 import kz.daracademy.model.event.EventResponse;
 
@@ -26,6 +27,8 @@ public interface EventService {
     List<EventResponse> getUpcomingEvents();
 
     List<EventResponse> getNewEvents();
+
+    EventNotificationInfo prepareEventInfoForNotification(String eventId);
 
 
 }

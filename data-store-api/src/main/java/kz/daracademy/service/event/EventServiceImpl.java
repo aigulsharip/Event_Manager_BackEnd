@@ -1,6 +1,7 @@
 package kz.daracademy.service.event;
 
 import kz.daracademy.model.event.EventEntity;
+import kz.daracademy.model.event.EventNotificationInfo;
 import kz.daracademy.model.event.EventRequest;
 import kz.daracademy.model.event.EventResponse;
 import kz.daracademy.repository.CategoryRepository;
@@ -103,11 +104,24 @@ public class EventServiceImpl implements EventService {
     @Override
     public List<EventResponse> getNewEvents() {
         //List of events that was posted 2 weeks before , sorted by posted date
-        Date postedDate2weeksBefore= Date.from(LocalDate.now().minusWeeks(2).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date postedDate2weeksBefore = Date.from(LocalDate.now().minusWeeks(2).atStartOfDay(ZoneId.systemDefault()).toInstant());
         System.out.println(postedDate2weeksBefore);
         return eventRepository.findEventEntitiesByPostedDateAfterOrderByPostedDate(postedDate2weeksBefore).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
 
 
+    }
+
+    @Override
+    public EventNotificationInfo prepareEventInfoForNotification(String eventId) {
+        EventNotificationInfo eventNotificationInfo = new EventNotificationInfo();
+        EventResponse event = getEventById(eventId);
+        eventNotificationInfo.setTitle(event.getTitle());
+        eventNotificationInfo.setName(event.getUser().getFullName());
+        eventNotificationInfo.setEmail(event.getUser().getEmail());
+        eventNotificationInfo.setPostedDate(event.getPostedDate());
+        eventNotificationInfo.setStartDateTime(event.getStartDateTime());
+
+        return eventNotificationInfo;
     }
 
 

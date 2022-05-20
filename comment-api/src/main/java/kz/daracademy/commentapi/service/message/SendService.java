@@ -1,5 +1,5 @@
 package kz.daracademy.commentapi.service.message;
 
-public interface SendService{
+public interface SendService {
     void send(String message);
 }

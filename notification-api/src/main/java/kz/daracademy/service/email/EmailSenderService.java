@@ -6,6 +6,8 @@ import kz.daracademy.model.EventNotificationInfo;
 
 public interface EmailSenderService {
     void sendEmail(String to, String subject, String message);
-    EmailMessage renderEventEmail (EventNotificationInfo eventNotificationInfo);
-    EmailMessage renderСommentEmail (CommentNotificationInfo commentNotificationInfo);
+
+    EmailMessage renderEventEmail(EventNotificationInfo eventNotificationInfo);
+
+    EmailMessage renderСommentEmail(CommentNotificationInfo commentNotificationInfo);
 }

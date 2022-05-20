@@ -21,9 +21,4 @@ public class MailNotificationController {
         return "mail-notification is working";
     }
 
-    @PostMapping("/send-email")
-    public void sendEmail () {
-        emailSenderService.sendEmail("aigul.sharip@nu.edu.kz", "This is subject", "Message");
-    }
-
 }

@@ -6,7 +6,7 @@ import kz.daracademy.model.EventNotificationInfo;
 
 public interface ConsumeService {
 
-    //void consumeEventInfo(EventNotificationInfo eventNotificationInfo);
+    void consumeEventInfo(EventNotificationInfo eventNotificationInfo);
 
     void consumeCommentInfo(CommentNotificationInfo commentNotificationInfo);
 
