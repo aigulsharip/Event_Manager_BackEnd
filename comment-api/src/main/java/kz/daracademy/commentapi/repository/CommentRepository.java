@@ -1,9 +1,6 @@
 package kz.daracademy.commentapi.repository;
 
 
-import kz.daracademy.commentapi.model.CommentResponse;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,12 +10,10 @@ import java.util.List;
 public interface CommentRepository extends ElasticsearchRepository<CommentEntity, String>
 //public interface CommentRepository extends JpaRepository<CommentEntity, Long>
 {
-
     //Get All Pageable
-//    Page<CommentEntity> getCommentEntitiesBy(Pageable pageable);
+    //Page<CommentEntity> getCommentEntitiesBy(Pageable pageable);
 
     List<CommentEntity> getCommentEntitiesBy();
-
 
     //Get by ID
     CommentEntity getCommentEntityByCommentId(String commentId);
@@ -37,5 +32,8 @@ public interface CommentRepository extends ElasticsearchRepository<CommentEntity
     CommentEntity deleteCommentEntityByCommentId(String commentId);
 
     List<CommentEntity> getCommentEntitiesByParentCommentId(String commentId);
+
+    List<CommentEntity> getCommentEntitiesByParentCommentIdNotNull();
+
 
 }

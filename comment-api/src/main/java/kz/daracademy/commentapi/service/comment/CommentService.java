@@ -1,14 +1,9 @@
-package kz.daracademy.commentapi.service;
+package kz.daracademy.commentapi.service.comment;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import kz.daracademy.commentapi.model.CommentRequest;
-import kz.daracademy.commentapi.model.CommentResponse;
-import kz.daracademy.commentapi.repository.CommentEntity;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
+import kz.daracademy.commentapi.model.comment.CommentRequest;
+import kz.daracademy.commentapi.model.comment.CommentResponse;
 
-import javax.xml.stream.events.Comment;
 import java.util.List;
 
 public interface CommentService  {
@@ -38,4 +33,8 @@ public interface CommentService  {
     List<CommentResponse> getCommentEntitiesByParentCommentIdIsNullAndAndEventId(String eventId);
 
     List<CommentResponse> getAllRepliesOfComment(String commentId);
+
+    List<CommentResponse> getCommentsByEventId(String eventId);
+
+    List<CommentResponse> getListOfReplyComments();
 }

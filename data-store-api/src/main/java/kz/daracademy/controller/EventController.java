@@ -82,7 +82,6 @@ public class EventController {
         return eventService.getAllEvents();
     }
 
-    // this one only for checking purpose for kafka producer
     @PostMapping("/notification/send-event")
     public ResponseEntity<String> sendEventData(@RequestParam String eventId) throws JsonProcessingException {
         EventNotificationInfo eventNotificationInfo = new EventNotificationInfo();

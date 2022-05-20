@@ -1,4 +1,4 @@
-package kz.daracademy.commentapi.model;
+package kz.daracademy.commentapi.model.comment;
 
 import kz.daracademy.commentapi.repository.CommentEntity;
 import lombok.AllArgsConstructor;

@@ -1,17 +1,15 @@
-package kz.daracademy.commentapi.service;
+package kz.daracademy.commentapi.service.comment;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import kz.daracademy.commentapi.model.CommentRequest;
-import kz.daracademy.commentapi.model.CommentResponse;
+import kz.daracademy.commentapi.model.comment.CommentRequest;
+import kz.daracademy.commentapi.model.comment.CommentResponse;
 import kz.daracademy.commentapi.repository.CommentEntity;
 import kz.daracademy.commentapi.repository.CommentRepository;
 import kz.daracademy.commentapi.service.message.SendService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -100,6 +98,20 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<CommentResponse> getAllRepliesOfComment(String commentId) {
         return commentRepository.getCommentEntitiesByParentCommentId(commentId).stream()
+                .map(comment -> modelMapper.map(comment, CommentResponse.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<CommentResponse> getCommentsByEventId(String eventId) {
+        return commentRepository.getCommentEntitiesByEventId(eventId).stream()
+                .map(comment -> modelMapper.map(comment, CommentResponse.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<CommentResponse> getListOfReplyComments() {
+        return commentRepository.getCommentEntitiesByParentCommentIdNotNull().stream()
                 .map(comment -> modelMapper.map(comment, CommentResponse.class))
                 .collect(Collectors.toList());
     }
