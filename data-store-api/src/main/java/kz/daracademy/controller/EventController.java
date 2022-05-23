@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import kz.daracademy.model.event.EventNotificationInfo;
 import kz.daracademy.model.event.EventRequest;
 import kz.daracademy.model.event.EventResponse;
-import kz.daracademy.service.event.EventService;
-import kz.daracademy.service.message.SendService;
+import kz.daracademy.service.event.EventServiceImpl;
+import kz.daracademy.service.message.SendServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +19,10 @@ import java.util.List;
 public class EventController {
 
     @Autowired
-    private EventService eventService;
+    private EventServiceImpl eventService;
 
     @Autowired
-    private SendService sendService;
+    private SendServiceImpl sendService;
 
     ObjectMapper objectMapper = new ObjectMapper();
 

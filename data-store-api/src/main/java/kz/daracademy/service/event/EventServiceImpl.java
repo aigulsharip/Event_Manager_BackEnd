@@ -1,11 +1,14 @@
 package kz.daracademy.service.event;
 
+import kz.daracademy.model.category.CategoryEntity;
 import kz.daracademy.model.event.EventEntity;
 import kz.daracademy.model.event.EventNotificationInfo;
 import kz.daracademy.model.event.EventRequest;
 import kz.daracademy.model.event.EventResponse;
+import kz.daracademy.model.user.UserEntity;
 import kz.daracademy.repository.CategoryRepository;
 import kz.daracademy.repository.EventRepository;
+import kz.daracademy.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +30,9 @@ public class EventServiceImpl implements EventService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     static ModelMapper modelMapper = new ModelMapper();
 
     static {
@@ -37,6 +43,15 @@ public class EventServiceImpl implements EventService {
     @Override
     public EventResponse createEvent(EventRequest eventRequest) {
         eventRequest.setEventId(UUID.randomUUID().toString());
+        eventRequest.setVotes(0);
+
+        UserEntity userEntity = userRepository.getUserEntityByUserId(eventRequest.getUser().getUserId());
+
+        CategoryEntity categoryEntity = categoryRepository.getCategoryEntityByCategoryId(eventRequest.getCategory().getCategoryId());
+
+        eventRequest.setUser(userEntity);
+        eventRequest.setCategory(categoryEntity);
+
         EventEntity eventEntity = modelMapper.map(eventRequest, EventEntity.class);
         eventEntity = eventRepository.save(eventEntity);
         return modelMapper.map(eventEntity, EventResponse.class);

@@ -2,7 +2,7 @@ package kz.daracademy.controller;
 
 import kz.daracademy.model.user.UserRequest;
 import kz.daracademy.model.user.UserResponse;
-import kz.daracademy.service.user.UserService;
+import kz.daracademy.service.user.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @PostMapping
     public UserResponse createUser(@RequestBody UserRequest userRequest) {

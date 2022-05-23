@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,6 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponse createUser(UserRequest userRequest) {
+        userRequest.setUserId(UUID.randomUUID().toString());
         UserEntity userEntity = modelMapper.map(userRequest, UserEntity.class);
         userEntity = userRepository.save(userEntity);
         return modelMapper.map(userEntity, UserResponse.class);

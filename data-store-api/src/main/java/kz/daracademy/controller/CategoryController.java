@@ -2,7 +2,7 @@ package kz.daracademy.controller;
 
 import kz.daracademy.model.category.CategoryRequest;
 import kz.daracademy.model.category.CategoryResponse;
-import kz.daracademy.service.category.CategoryService;
+import kz.daracademy.service.category.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/category")
 public class CategoryController {
     @Autowired
-    private CategoryService categoryService;
+    private CategoryServiceImpl categoryService;
 
 
     @PostMapping
