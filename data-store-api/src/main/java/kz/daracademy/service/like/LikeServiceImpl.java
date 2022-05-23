@@ -1,6 +1,5 @@
 package kz.daracademy.service.like;
 
-import jdk.jfr.Event;
 import kz.daracademy.model.event.EventEntity;
 import kz.daracademy.model.like.LikeEntity;
 import kz.daracademy.model.like.LikeRequest;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class LikeServiceImpl implements LikeService{
@@ -40,7 +38,6 @@ public class LikeServiceImpl implements LikeService{
         try {
             LikeEntity likeEntity1 = likeRepository.getLikeEntityByEventIdAndUserId(likeEntity.getEventId(),
                     likeEntity.getUserId());
-            System.out.println(likeEntity1);
 
             if (likeEntity1 == null) {
                 likeEntity = likeRepository.save(likeEntity); // like добавляется в таблицу +1 like
@@ -58,26 +55,21 @@ public class LikeServiceImpl implements LikeService{
                 throw new Exception();
             }
         } catch (Exception e) {
-            System.out.println("Don`t created");
+            System.out.println("Don`t created like");
             return null;
         }
     }
 
     @Override
     public int getLikesByEventId(String eventId) {
-        return likeRepository.getLikeEntityByEventId(eventId).stream().map(l -> modelMapper.map(l, LikeResponse.class))
-                .collect(Collectors.toList()).size();
+        return likeRepository.getLikeEntityByEventId(eventId).size();
     }
 
     @Override
     public boolean getLikeByEventIdAndUserId(String eventId, String userId) {
         LikeEntity likeEntity = likeRepository.getLikeEntityByEventIdAndUserId(eventId, userId);
-        if (likeEntity != null) {
-//            return modelMapper.map(likeEntity, LikeResponse.class);
-            return true;
-        } else {
-            return false;
-        }
+        //            return modelMapper.map(likeEntity, LikeResponse.class);
+        return likeEntity != null;
     }
 
     @Override
