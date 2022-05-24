@@ -1,4 +1,5 @@
 ##############DATA-STORE-API#################
+Link to Postman queries:https://www.getpostman.com/collections/1a00e547ad97f61886ac 
 ##############EVENTS#########################
 ###############GET############################
 Check
