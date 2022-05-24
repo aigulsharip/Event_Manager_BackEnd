@@ -1,6 +1,8 @@
 package kz.daracademy.model.event;
 
 import kz.daracademy.model.category.CategoryEntity;
+import kz.daracademy.model.img.ImgRequest;
+import kz.daracademy.model.img.ImgResponse;
 import kz.daracademy.model.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +26,7 @@ public class EventRequest {
 
     private Date endDateTime;
 
-    private List<String> pictures;
+    private List<ImgRequest> pictures;
 
     private Integer votes;
 

@@ -31,8 +31,6 @@ public class EventEntity {
     Date startDateTime;
     @Column
     Date endDateTime;
-    @ElementCollection
-    List<String> pictures;
     @Column
     Integer votes;
     @Column
