@@ -1,0 +1,58 @@
+##############DATA-STORE-API#################
+##############USERS#########################
+Get all
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/user/all
+
+Get By userId
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/user?userId=60986cb9-5552-4d25-bf2c-d2bc6547654f
+
+Post to Create User
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/user
+Example:
+{
+        "fullName": "Серик Болатов",
+        "email": "aigul.sharip@nu.edu.kz"
+}
+
+PUT:
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/user?userId=60986cb9-5552-4d25-bf2c-d2bc6547654f
+{
+    "userId": "60986cb9-5552-4d25-bf2c-d2bc6547654f",
+    "fullName": "Арман Сапаров",
+    "email": "aigul.sharip@nu.edu.kz"
+}
+
+DELETE:
+BE CAREFUL!!!!
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/user?userId=60986cb9-5552-4d25-bf2c-d2bc6547654f
+
+##############CATEGORY#########################
+
+Get all
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/category/all
+
+Get By categoryId
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/category?categoryId=4e3ce4d7-57f5-458b-bb90-cb97202b789e
+
+Post to Create Category
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/category
+Example:
+{
+      "categoryName": "Концерты",
+        "orderInSorting": "1"
+}
+PUT:
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/category?categoryId=4e3ce4d7-57f5-458b-bb90-cb97202b789e
+{
+    "categoryId": "4e3ce4d7-57f5-458b-bb90-cb97202b789e",
+    "categoryName": "Концерты",
+    "orderInSorting": "1"
+}
+
+DELETE:
+BE CAREFUL!!!!
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/category?categoryId=4e3ce4d7-57f5-458b-bb90-cb97202b789e
+
+
+
+

@@ -1,0 +1,64 @@
+##############DATA-STORE-API#################
+##############FAVORITE#########################
+Get all
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/favorite/all
+Get By Favorite by userId
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/favorite?userId=60986cb9-5552-4d25-bf2c-d2bc6547654f
+Post to Create User
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/favorite
+Example:
+{
+        "userId": "60986cb9-5552-4d25-bf2c-d2bc6547654f",
+        "eventId": "292f0601-37de-4fe2-8e90-986f0b7fe911"
+     
+}
+DELETE:
+BE CAREFUL!!!!
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/favorite?favoriteId=f961a96c-4c73-4350-a27a-c9a8e83c82
+
+##############LIKES#########################
+Get all likes by eventId
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/like/all?eventId=f57f6716-7bf0-4fbe-9c03-939c03295c16
+
+For this event, like count is 1:
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/like/all?eventId=292f0601-37de-4fe2-8e90-986f0b7fe911
+
+GET request to check whether user liked event or not, return true or false
+Using eventId and userId:
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/like?eventId=292f0601-37de-4fe2-8e90-986f0b7fe911&userId=60986cb9-5552-4d25-bf2c-d2bc6547654f
+
+Post to Create Like
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/like
+Example:
+{
+        "userId": "60986cb9-5552-4d25-bf2c-d2bc6547654f",
+        "eventId": "292f0601-37de-4fe2-8e90-986f0b7fe911"
+     
+}
+DELETE:
+BE CAREFUL!!!!
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/like?eventId=292f0601-37de-4fe2-8e90-986f0b7fe911&userId=60986cb9-5552-4d25-bf2c-d2bc6547654f
+
+
+##############DISLIKES#########################
+Get all dislikes by eventId
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/dislike/all?eventId=292f0601-37de-4fe2-8e90-986f0b7fe911
+
+GET request to check whether user disliked event or not, return true or false
+Using eventId and userId:
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/dislike?eventId=292f0601-37de-4fe2-8e90-986f0b7fe911&userId=01d19e10-aaf2-47f9-8896-677d60375e49
+
+Post to Create Dislike
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/dislike
+Example:
+{
+        "userId": "01d19e10-aaf2-47f9-8896-677d60375e49",
+        "eventId": "292f0601-37de-4fe2-8e90-986f0b7fe911"
+       
+    }
+DELETE:
+BE CAREFUL!!!!
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/like/all?eventId=292f0601-37de-4fe2-8e90-986f0b7fe911
+
+
+

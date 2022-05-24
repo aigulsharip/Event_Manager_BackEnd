@@ -1,0 +1,73 @@
+##############Comment-API#################
+Check
+http://events-manager.dar-dev.zone/api/v1/gateway/comment-api/comment/check
+
+Get all comments
+http://events-manager.dar-dev.zone/api/v1/gateway/comment-api/comment/all
+
+Get By commentId
+http://events-manager.dar-dev.zone/api/v1/gateway/comment-api/comment?commentId=d014c869-6da9-484a-8ded-97d7f7e7f896
+
+Get comments of specific event by eventId:
+http://events-manager.dar-dev.zone/api/v1/gateway/comment-api/comment/event?eventId=292f0601-37de-4fe2-8e90-986f0b7fe911
+
+Show all the replies for this comment(main comment) by commentId:
+http://events-manager.dar-dev.zone/api/v1/gateway/comment-api/comment/detail?commentId=aecb5a5f-7869-4379-979a-22b7b1a501a5
+
+Get the list of all reply comments (child comments):
+http://events-manager.dar-dev.zone/api/v1/gateway/comment-api/comment/reply
+
+Post: Post to Create Comments
+http://events-manager.dar-dev.zone/api/v1/gateway/comment-api/comment
+Example:
+ {
+        "text": "This is reply for main comment update",
+        "userId": "60986cb9-5552-4d25-bf2c-d2bc6547654f",
+        "eventId": "292f0601-37de-4fe2-8e90-986f0b7fe911",
+        "parentCommentId": "aecb5a5f-7869-4379-979a-22b7b1a501a5"
+    }
+
+PUT: To update comment 
+http://events-manager.dar-dev.zone/api/v1/gateway/comment-api/comment?commentId=3c997fb1-31a4-4ee5-b53f-7cb0a4f0304c
+ {
+        "text": "This is reply for main comment update update",
+        "userId": "60986cb9-5552-4d25-bf2c-d2bc6547654f",
+        "eventId": "292f0601-37de-4fe2-8e90-986f0b7fe911",
+        "parentCommentId": "aecb5a5f-7869-4379-979a-22b7b1a501a5"
+    }
+
+#############DELETE###################################
+http://events-manager.dar-dev.zone/api/v1/gateway/comment-api/comment?commentId=3c997fb1-31a4-4ee5-b53f-7cb0a4f0304c
+
+#############Notificatons####################
+Check
+http://localhost:8082/notification-api/notification/check
+#########Email notification for creating events:
+
+POST:http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event/notification/send-event?eventId=f57f6716-7bf0-4fbe-9c03-939c03295c16
+Output of Query: email notification from dareventmanager@gmail.com
+Subject: Уведомление: вы создали новое мероприятие
+Message:
+Добрый день, Серик Болатов!
+
+Вы создали новое мероприятие с названием Соник 2 в кино.
+Событие опубликовано в Thu Apr 14 09:00:00 ALMT 2022 .
+Мероприятие состоится в Tue May 03 18:00:00 ALMT 2022.
+
+#########Email notification for reply comments:
+#Notification will be sent to parentCommentator email notifying that somebody responsed to his comment
+POST:http://events-manager.dar-dev.zone/api/v1/gateway/comment-api/comment/email?commentId=4c5610bf-9357-43e7-9d18-133f6ca79e79
+
+Output of Query: email notification from dareventmanager@gmail.com
+Subject: Новый комментарий к мероприятию Легенда о Ромео и Джульетте
+Message:
+
+Пользователь Сергей Иванов ответил на комментарий пользвателя Марина Кучук
+Комментарий текущего пользователя: This is response to main comment
+Основной Комментарий: This is main comment for event
+
+
+
+
+
+

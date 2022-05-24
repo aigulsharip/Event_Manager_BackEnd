@@ -1,0 +1,67 @@
+Categories
+
+id  category_id	name  		order_in_sorting
+1   1             Концерты          1
+2   2			Выставки          2
+3   3             Театр             3
+4   4             Кино			4
+5   5             Спорт             5
+6   6             Мастер-классы     6
+
+    {
+      "categoryName": "Концерты",
+        "orderInSorting": "1"
+    },
+    {
+        "categoryName": "Выставки",
+        "orderInSorting": "2"
+    },
+    {
+        "categoryName": "Театр",
+        "orderInSorting": "3"
+    },
+    {
+        "categoryName": "Кино",
+        "orderInSorting": "4"
+    },
+    {
+        "categoryName": "Спорт",
+        "orderInSorting": "5"
+    },
+    {
+        "categoryName": "Мастер-классы",
+        "orderInSorting": "6"
+    }
+
+
+
+Users
+
+    {
+       
+        "fullName": "Серик Болатов",
+        "email": "aigul.sharip@nu.edu.kz"
+    },
+    {
+        "fullName": "Арман Сапаров",
+        "email": "aigul.sharip@nu.edu.kz"
+    },
+    {
+        "fullName": "Сергей Иванов",
+        "email": "aigul.sharip@nu.edu.kz"
+    },
+    {
+        
+        "fullName": "Марина Кучук",
+        "email": "aigul.sharip@nu.edu.kz"
+    },
+    {
+        
+        "fullName": "Айдана Саматова",
+        "email": "aigul.sharip@nu.edu.kz"
+    },
+    {
+       
+        "fullName": "Админ",
+        "email": "aigul.sharip@nu.edu.kz"
+    }

@@ -1,0 +1,121 @@
+##############DATA-STORE-API#################
+##############EVENTS#########################
+###############GET############################
+Check
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event/check
+
+Get all
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event/all
+
+Get By EventId
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event?eventId=f57f6716-7bf0-4fbe-9c03-939c03295c16
+####FILTER####
+Filter By Category Id (from 1 to 5)
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event/filter?categoryId=4e3ce4d7-57f5-458b-bb90-cb97202b789e
+
+Filter By Category Name (Концерты, Выставки, Театр, Кино, Спорт)
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event/filter/categoryName?categoryName=Концерты
+
+
+Filter Events by Sections (new, popular or upcoming)
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event/section?sectionName=new
+
+popular: List of events with votes more than 3 and sorted asc by votes
+upcoming: List of events from today and onward 2 weeks, sorted by starting date
+new: List of events that was posted 2 weeks before , sorted by posted date
+
+
+###############POST############################
+
+Post to Create Event
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event
+
+Example:
+{
+    "title": "Соник 2 в кино",
+    "description": "Поселившись в Грин Хилз, Соник стремится доказать, что у него есть все задатки настоящего героя.",
+    "startDateTime": "2022-05-03T12:00:00.000+00:00",
+    "endDateTime": "2022-05-03T14:00:00.000+00:00",
+    "pictures": [
+        "https://ticketon.kz/media/upload/29086u30705_sonik-2-v-kino.jpg",
+        "https://ticketon.kz/files/media/29086u30705_sonik-2-v-kino1.jpg"
+    ],
+    "postedDate": "2022-04-14T03:00:00.000+00:00",
+    "category": {
+        "categoryId": "4e3ce4d7-57f5-458b-bb90-cb97202b789e",
+        "categoryName": "Концерты",
+        "orderInSorting": "1"
+    },
+    "user": {
+        "userId": "89ab8634-255a-4b29-a816-16417959db8f",
+        "fullName": "Серик Болатов",
+        "email": "aigul.sharip@nu.edu.kz"
+    }
+}
+
+
+
+
+##########PUT##################################
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event?eventId=f57f6716-7bf0-4fbe-9c03-939c03295c16
+
+{
+    "eventId": "f57f6716-7bf0-4fbe-9c03-939c03295c16",
+    "title": "Соник 2 в кино",
+    "description": "Поселившись в Грин Хилз, Соник стремится доказать, что у него есть все задатки настоящего героя.",
+    "startDateTime": "2022-05-03T12:00:00.000+00:00",
+    "endDateTime": "2022-05-03T14:00:00.000+00:00",
+    "pictures": [
+        "https://ticketon.kz/media/upload/29086u30705_sonik-2-v-kino.jpg",
+        "https://ticketon.kz/files/media/29086u30705_sonik-2-v-kino1.jpg"
+    ],
+    "votes": 0,
+    "postedDate": "2022-04-14T03:00:00.000+00:00",
+    "category": {
+        "id": 274,
+        "categoryId": "4e3ce4d7-57f5-458b-bb90-cb97202b789e",
+        "categoryName": "Концерты",
+        "orderInSorting": "1"
+    },
+    "user": {
+        "id": 281,
+        "userId": "89ab8634-255a-4b29-a816-16417959db8f",
+        "fullName": "Серик Болатов",
+        "email": "aigul.sharip@nu.edu.kz"
+    }
+}
+
+
+#############DELETE###################################
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event?eventId=!!!!!!
+
+
+########COMMENTS#######################################
+
+
+
+#############Notificaton####################
+
+
+#########Email notification for creating events:
+
+POST:http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event/notification/send-event?eventId=f57f6716-7bf0-4fbe-9c03-939c03295c16
+Output of Query: email notification from dareventmanager@gmail.com
+Subject: Уведомление: вы создали новое мероприятие
+Message:
+Добрый день, Серик Болатов!
+
+Вы создали новое мероприятие с названием Соник 2 в кино.
+Событие опубликовано в Thu Apr 14 09:00:00 ALMT 2022 .
+Мероприятие состоится в Tue May 03 18:00:00 ALMT 2022.
+
+#########Email notification for reply comments:
+#Notification will be parentCommentator, that somebody responsed to his comment
+
+
+
+
+
+
+
+
