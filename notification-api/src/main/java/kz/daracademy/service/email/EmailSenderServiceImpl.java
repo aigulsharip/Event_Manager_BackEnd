@@ -45,27 +45,15 @@ public class EmailSenderServiceImpl implements EmailSenderService {
         EmailMessage emailCommentMessage = new EmailMessage();
         emailCommentMessage.setSubject("Новый комментарий к мероприятию " + commentNotificationInfo.getEventTitle());
         String message = "";
-        if (commentNotificationInfo.getParentCommentatorName() == null) {
-            emailCommentMessage.setTo(commentNotificationInfo.getCommentatorEmail());
 
-            message += "Пользователь " + commentNotificationInfo.getCommentatorName() + " написал комментарий. \n";
-            message += "Комментарий: " + commentNotificationInfo.getCommentatorText();
-
-        }
-        else {
+        if (commentNotificationInfo.getParentCommentatorName() != null) {
             emailCommentMessage.setTo(commentNotificationInfo.getParentCommentatorEmail());
-
             message += "Пользователь " + commentNotificationInfo.getCommentatorName() + " ответил на комментарий пользвателя " +
                     commentNotificationInfo.getParentCommentatorName() + " \n";
-            message += "Ответный комментарий: " + commentNotificationInfo.getCommentatorText() + " \n";
+            message += "Комментарий текущего пользователя: " + commentNotificationInfo.getCommentatorText() + " \n";
             message += "Основной Комментарий: " + commentNotificationInfo.getParentCommentatorText() + "\n";
-
-
         }
-
-
         emailCommentMessage.setMessage(message);
-
         return emailCommentMessage;
     }
 

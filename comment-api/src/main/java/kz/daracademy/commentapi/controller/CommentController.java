@@ -81,10 +81,7 @@ public class CommentController {
     }
 
 
-    @GetMapping("/event/parent-null")
-    public List<CommentResponse> getCommentsByEventId(@RequestParam String eventId) {
-        return commentService.getCommentEntitiesByParentCommentIdIsNullAndAndEventId(eventId);
-    }
+
 
 
     @GetMapping("/reply")
@@ -96,7 +93,9 @@ public class CommentController {
     @PostMapping("/email")
     public ResponseEntity<String> sendCommentData(@RequestParam String commentId) throws JsonProcessingException {
         CommentNotificationInfo commentNotificationInfo = commentService.prepareCommentForNotification(commentId);
-
+        if (commentNotificationInfo.getParentCommentatorName() == null) {
+            return new ResponseEntity<>("This is main comment and no notificaton will be sent", HttpStatus.OK);
+        }
         sendService.send(objectMapper.writeValueAsString(commentNotificationInfo));
         return new ResponseEntity<>("Mail Send Succesfully", HttpStatus.OK);
     }

@@ -100,8 +100,8 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<EventResponse> getPopularEvents() {
-        // List of events with votes more than 50 and sorted asc by votes
-        int numberOfVotesThresholdToBePopular = 50;
+        // List of events with votes more than 3 and sorted asc by votes
+        int numberOfVotesThresholdToBePopular = 3;
         return eventRepository.findEventEntitiesByVotesGreaterThanOrderByVotesAsc(numberOfVotesThresholdToBePopular).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
     }
 

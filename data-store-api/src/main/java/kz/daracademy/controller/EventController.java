@@ -7,11 +7,19 @@ import kz.daracademy.model.event.EventRequest;
 import kz.daracademy.model.event.EventResponse;
 import kz.daracademy.service.event.EventServiceImpl;
 import kz.daracademy.service.message.SendServiceImpl;
+import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @RestController
@@ -35,6 +43,7 @@ public class EventController {
     public EventResponse createEvent(@RequestBody EventRequest eventRequest) {
         return eventService.createEvent(eventRequest);
     }
+
 
     @PutMapping
     public EventResponse updateEvent(@RequestBody EventRequest eventRequest, @RequestParam String eventId) {

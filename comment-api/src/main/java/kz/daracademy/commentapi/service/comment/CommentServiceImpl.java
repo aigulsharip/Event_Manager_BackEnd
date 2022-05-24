@@ -135,6 +135,7 @@ public class CommentServiceImpl implements CommentService {
         String eventTitle = event.getTitle();
         if (comment.getParentCommentId() == null) {
             commentNotificationInfo = new CommentNotificationInfo(commentatorName, commentatorEmail, commentatorText, eventTitle);
+
         } else {
             String parentCommentId = comment.getParentCommentId();
             CommentResponse parentComment = getCommentById(parentCommentId);
