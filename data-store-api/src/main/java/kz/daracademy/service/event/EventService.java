@@ -30,5 +30,9 @@ public interface EventService {
 
     EventNotificationInfo prepareEventInfoForNotification(String eventId);
 
+    List<EventResponse> getEventsByUserId(String userId);
+
+    List<EventResponse> getEventsByUserIdF(String userIdF);
+
 
 }

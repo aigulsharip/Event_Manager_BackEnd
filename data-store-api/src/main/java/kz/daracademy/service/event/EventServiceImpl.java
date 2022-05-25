@@ -139,5 +139,14 @@ public class EventServiceImpl implements EventService {
         return eventNotificationInfo;
     }
 
+    @Override
+    public List<EventResponse> getEventsByUserId(String userId) {
+        return eventRepository.findEventEntitiesByUser_UserId(userId).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EventResponse> getEventsByUserIdF(String userId) {
+        return eventRepository.findEventEntitiesByUser_UserIdF(userId).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
+    }
 
 }

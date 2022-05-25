@@ -56,6 +56,18 @@ public class EventController {
         return eventService.getAllEvents();
     }
 
+    @GetMapping("/user")
+    public List<EventResponse> getEventsByUserId(@RequestParam String userId) {
+        return eventService.getEventsByUserId(userId);
+    }
+
+    @GetMapping("/userF")
+    public List<EventResponse> getEventsByUserIdF(@RequestParam String userIdF) {
+        return eventService.getEventsByUserIdF(userIdF);
+    }
+
+
+
     @GetMapping()
     public EventResponse getEventById(@RequestParam String eventId) {
         return eventService.getEventById(eventId);
@@ -97,6 +109,8 @@ public class EventController {
         sendService.send(objectMapper.writeValueAsString(eventNotificationInfo));
         return new ResponseEntity<>("Mail Sent Succesfully", HttpStatus.OK);
     }
+
+
 
 
 

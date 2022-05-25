@@ -29,6 +29,10 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
 
     List<EventEntity> findEventEntitiesByPostedDateAfterOrderByPostedDate(Date date);
 
+    List<EventEntity> findEventEntitiesByUser_UserId(String userId);
+
+    List<EventEntity> findEventEntitiesByUser_UserIdF(String userIdF);
+
 
     List<EventEntity> findEventEntitiesByStartDateTimeBetweenOrderByStartDateTime(Date startDate, Date endDate);
 
