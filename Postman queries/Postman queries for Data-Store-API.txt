@@ -10,6 +10,15 @@ http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event/all
 
 Get By EventId
 http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event?eventId=f57f6716-7bf0-4fbe-9c03-939c03295c16
+
+Get Events by UserId
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event/user?userId=d710df11-e448-4ae9-8eb5-ac642d387869
+
+Get Events by UserIdF
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event/userF?userIdF=b5048d-71bf-41cd-9f48-28e8cdjj3
+
+
+
 ####FILTER####
 Filter By Category Id (from 1 to 5)
 http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/event/filter?categoryId=4e3ce4d7-57f5-458b-bb90-cb97202b789e

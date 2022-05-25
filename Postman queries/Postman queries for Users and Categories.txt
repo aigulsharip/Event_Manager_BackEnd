@@ -10,17 +10,28 @@ Post to Create User
 http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/user
 Example:
 {
-        "fullName": "Серик Болатов",
+        "fullName": "New User",
         "email": "aigul.sharip@nu.edu.kz"
 }
 
-PUT:
-http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/user?userId=60986cb9-5552-4d25-bf2c-d2bc6547654f
+NOTE: I have added new field userIdF, which is also randomly generated and can be changed by put method
+
 {
-    "userId": "60986cb9-5552-4d25-bf2c-d2bc6547654f",
-    "fullName": "Арман Сапаров",
+    "userId": "696d509d-3537-410c-be4f-cf70d372d49d",
+    "userIdF": "10b5048d-71bf-41cd-9f48-28e8cd3c5d05",
+    "fullName": "New User",
     "email": "aigul.sharip@nu.edu.kz"
 }
+
+PUT:
+http://events-manager.dar-dev.zone/api/v1/gateway/data-store-api/user?userId=696d509d-3537-410c-be4f-cf70d372d49d
+{
+    "userId": "696d509d-3537-410c-be4f-cf70d372d49d",
+    "userIdF": "10b5048d-71bf-41cd-9f48-28e8cd3c5d05",
+    "fullName": "New User",
+    "email": "aigul.sharip@nu.edu.kz"
+}
+
 
 DELETE:
 BE CAREFUL!!!!
