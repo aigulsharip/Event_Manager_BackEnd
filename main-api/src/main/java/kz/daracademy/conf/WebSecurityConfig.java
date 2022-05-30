@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -20,11 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 )
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-
     @Autowired
     private JwtTokenFilter jwtTokenFilter;
-
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -34,10 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http = http
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and();
-
-
-        http = http
+                .and()
                 .exceptionHandling()
                 .authenticationEntryPoint(
                         (request, response, ex) -> {
@@ -48,26 +43,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         }
                 )
                 .and();
-
         http
-                // Our public endpoints
                 .authorizeRequests()
-                .antMatchers("/check").permitAll()
+                .antMatchers("/process-info/health/**").permitAll()
+                .antMatchers("/actuator/**").permitAll()
+
                 .antMatchers(
                         "/swagger-ui/**",
                         "/swagger/**",
                         "/api-docs.json/**",
-                        "/main/no-auth"
+                        "/swagger-ui.html/**"
                 ).permitAll()
-                // Our private endpoints
-                .anyRequest().authenticated();
+                .anyRequest()
+                .authenticated();
 
-        // Add JWT token filter
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
-
-
-
     }
 
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/v2/api-docs",
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/security",
+                "/swagger-ui.html",
+                "/webjars/**");
+    }
 
 }
