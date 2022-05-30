@@ -85,9 +85,6 @@ public class CommentController {
     }
 
 
-
-
-
     @GetMapping("/reply")
     public List<CommentResponse> getReplyComments() {
         return commentService.getListOfReplyComments();
