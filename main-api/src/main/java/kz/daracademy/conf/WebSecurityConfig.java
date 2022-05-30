@@ -52,11 +52,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 // Our public endpoints
                 .authorizeRequests()
-                .antMatchers("/healthcheck").permitAll()
+                .antMatchers("/check").permitAll()
                 .antMatchers(
                         "/swagger-ui/**",
                         "/swagger/**",
-                        "/api-docs.json/**"
+                        "/api-docs.json/**",
+                        "/main/no-auth"
                 ).permitAll()
                 // Our private endpoints
                 .anyRequest().authenticated();
