@@ -1,11 +1,13 @@
 package kz.daracademy.conf;
 
 import io.jsonwebtoken.*;
+import kz.daracademy.model.UserDetailsModel;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletRequest;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -13,7 +15,9 @@ import java.security.PublicKey;
 import java.security.SignatureException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 @Component
 @Log
@@ -76,5 +80,43 @@ public class JwtTokenProvider {
         return kf.generatePublic(spec);
     }
 
+    public Object getValueFromToken(String searchField, Class cl, HttpServletRequest request) {
+        String token = request.getHeader("Authorization").replaceAll("Bearer ", "");
+        Claims claims = getClaims(token);
+        return claims.get(searchField, cl);
+    }
 
+
+    public Claims getClaims(HttpServletRequest request) {
+        String token = request.getHeader("Authorization").replaceAll("Bearer ", "");
+        return getClaims(token);
+
+    }
+
+    public String getStringFieldByName(String stringFieldName, HttpServletRequest request) {
+        String email = (String) getValueFromToken(stringFieldName, String.class, request);
+        return email.replaceAll("@dar.kz", "").replaceAll("@index.com", "").replace("@dar.io", "");
+    }
+
+    public List<String> getListByName(String fieldName, HttpServletRequest request) {
+        Claims claims = getClaims(request);
+        return (List<String>) claims.getOrDefault(fieldName, new ArrayList<>());
+    }
+
+    public UserDetailsModel customGenerateFromToken(String token) {
+        Claims claims = getClaims(token);
+
+        UserDetailsModel user = new UserDetailsModel();
+        user.setId(claims.get("id", String.class));
+        user.setEmail(claims.get("email", String.class));
+        user.setRoles((ArrayList<String>) claims.getOrDefault("roles", new ArrayList<>()));
+
+        return user;
+    }
+
+    public String getToken(HttpServletRequest request) {
+        return request.getHeader("Authorization").replaceAll("Bearer ", "");
+
+
+    }
 }

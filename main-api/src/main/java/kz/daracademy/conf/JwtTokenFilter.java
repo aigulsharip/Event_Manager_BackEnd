@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.springframework.util.StringUtils.hasText;
@@ -37,6 +38,9 @@ public class JwtTokenFilter extends GenericFilterBean {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         log.info("Do filter...");
         String token = getTokenFromRequest((HttpServletRequest) servletRequest);
+        List<String> role = new ArrayList<>();
+        role.add("USER_ROLE");
+
         if (token != null && jwtTokenProvider.validateToken(token)) {
             Claims claims = jwtTokenProvider.getClaims(token);
 
@@ -54,7 +58,7 @@ public class JwtTokenFilter extends GenericFilterBean {
                     role.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));*/
 
             UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetailsModel, null,
-                    userDetailsModel.getRoles().stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
+                    role.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
 
 
             SecurityContextHolder.getContext().setAuthentication(auth);
