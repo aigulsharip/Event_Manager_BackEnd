@@ -2,6 +2,7 @@ package kz.daracademy.conf;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -47,6 +48,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/process-info/health/**").permitAll()
                 .antMatchers("/actuator/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/comment/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/category/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/event/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/dislike/all").permitAll()
+                .antMatchers(HttpMethod.GET,"/like/all").permitAll()
+
 
                 .antMatchers(
                         "/swagger-ui/**",
