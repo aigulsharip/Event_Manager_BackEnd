@@ -45,10 +45,6 @@ public class CommentController {
 
     @PostMapping
     public CommentResponse createComment(@RequestBody CommentRequest commentRequest) throws JsonProcessingException {
-        CommentNotificationInfo commentNotificationInfo = commentService.prepareCommentForNotification(commentRequest.getCommentId());
-        if (commentNotificationInfo.getParentCommentatorName() != null) {
-            sendService.send(objectMapper.writeValueAsString(commentNotificationInfo));
-        }
         return commentService.createComment(commentRequest);
     }
 

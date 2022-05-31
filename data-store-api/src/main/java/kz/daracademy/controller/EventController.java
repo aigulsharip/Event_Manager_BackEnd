@@ -41,9 +41,6 @@ public class EventController {
 
     @PostMapping
     public EventResponse createEvent(@RequestBody EventRequest eventRequest) throws JsonProcessingException {
-        EventNotificationInfo eventNotificationInfo = eventService.prepareEventInfoForNotification(eventRequest.getEventId());
-        sendService.send(objectMapper.writeValueAsString(eventNotificationInfo));
-
         return eventService.createEvent(eventRequest);
     }
 
