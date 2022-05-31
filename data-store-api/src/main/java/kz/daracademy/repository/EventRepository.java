@@ -23,7 +23,8 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
 
     List<EventEntity> findEventEntitiesByCategory_CategoryName(String categoryName);
 
-    List<EventEntity> findEventEntitiesByVotesGreaterThanOrderByVotesAsc(Integer votes);
+//    List<EventEntity> findEventEntitiesByVotesGreaterThanOrderByVotesAsc(Integer votes);
+    List<EventEntity> findEventEntitiesByLikesGreaterThanOrderByLikesAsc(Integer likes);
 
     List<EventEntity> findEventEntitiesByStartDateTimeAfterOrderByStartDateTime(Date date);
 

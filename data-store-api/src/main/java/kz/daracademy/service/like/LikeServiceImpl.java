@@ -4,8 +4,10 @@ import kz.daracademy.model.event.EventEntity;
 import kz.daracademy.model.like.LikeEntity;
 import kz.daracademy.model.like.LikeRequest;
 import kz.daracademy.model.like.LikeResponse;
+import kz.daracademy.model.user.UserEntity;
 import kz.daracademy.repository.EventRepository;
 import kz.daracademy.repository.LikeRepository;
+import kz.daracademy.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class LikeServiceImpl implements LikeService{
 
     @Autowired
     private EventRepository eventRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     static ModelMapper modelMapper = new ModelMapper();
 
@@ -40,15 +45,19 @@ public class LikeServiceImpl implements LikeService{
                     likeEntity.getUserId());
 
             if (likeEntity1 == null) {
-                likeEntity = likeRepository.save(likeEntity); // like добавляется в таблицу +1 like
+                EventEntity eventEntity = eventRepository.getEventEntityByEventId(likeEntity.getEventId());
+                UserEntity userEntity = userRepository.getUserEntityByUserId(likeEntity.getUserId());
+                if (eventEntity == null || userEntity == null) {
+                    throw new Exception();
+                }
 
-                EventEntity dbEntity = eventRepository.getEventEntityByEventId(likeEntity.getEventId());
+                likeEntity = likeRepository.save(likeEntity); // like добавляется в таблицу +1 like
 
                 List<LikeEntity> likes = likeRepository.getLikeEntityByEventId(likeEntity.getEventId());
                 int countVotes = likes.toArray().length; // подтягивается кол-во лайков у евента
-                dbEntity.setVotes(countVotes);
+                eventEntity.setLikes(countVotes);
 
-                eventRepository.save(dbEntity);
+                eventRepository.save(eventEntity);
 
                 return modelMapper.map(likeEntity, LikeResponse.class);
             } else {
@@ -80,7 +89,7 @@ public class LikeServiceImpl implements LikeService{
 
         List<LikeEntity> likes = likeRepository.getLikeEntityByEventId(eventId);
         int countVotes = likes.toArray().length; // подтягивается кол-во лайков у евента
-        dbEntity.setVotes(countVotes);
+        dbEntity.setLikes(countVotes);
 
         eventRepository.save(dbEntity);
     }

@@ -16,7 +16,6 @@ import java.util.List;
 @Table(name = "events_table")
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class EventEntity {
     @Id
     @GeneratedValue
@@ -34,7 +33,9 @@ public class EventEntity {
     @ElementCollection
     List<String> pictures;
     @Column
-    Integer votes;
+    Integer likes;
+    @Column
+    Integer dislikes;
     @Column
     Date postedDate;
 

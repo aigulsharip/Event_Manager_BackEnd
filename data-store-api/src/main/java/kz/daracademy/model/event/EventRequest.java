@@ -26,10 +26,11 @@ public class EventRequest {
 
     private List<String> pictures;
 
-    private Integer votes;
+    private Integer likes;
+
+    private Integer dislikes;
 
     Date postedDate;
-
 
     private CategoryEntity category;
 
