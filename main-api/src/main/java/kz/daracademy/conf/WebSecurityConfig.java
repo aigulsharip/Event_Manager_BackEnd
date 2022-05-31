@@ -52,7 +52,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/swagger-ui/**",
                         "/swagger/**",
                         "/api-docs.json/**",
-                        "/swagger-ui.html/**"
+                        "/swagger-ui.html/**",
+                        "/main/no-auth",
+                        "/event/check"
+
                 ).permitAll()
                 .anyRequest()
                 .authenticated();
