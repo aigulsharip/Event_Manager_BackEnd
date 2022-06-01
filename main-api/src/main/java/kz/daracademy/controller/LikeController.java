@@ -19,8 +19,8 @@ public class LikeController {
 
     @PostMapping
     public ResponseEntity<String> createLike(@RequestBody Like like) {
-        UserDetailsModel principal = (UserDetailsModel) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        like.setUserId(principal.getUserId());
+//        UserDetailsModel principal = (UserDetailsModel) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        like.setUserId(principal.getUserId());
         return dataStoreFeign.createLike(like);
 
     }
