@@ -43,7 +43,7 @@ public class EventServiceImpl implements EventService {
     @Override
     public EventResponse createEvent(EventRequest eventRequest) {
         eventRequest.setEventId(UUID.randomUUID().toString());
-        eventRequest.setLikes(0);
+        eventRequest.setVotes(0);
         eventRequest.setDislikes(0);
 
         UserEntity userEntity = userRepository.getUserEntityByUserId(eventRequest.getUser().getUserId());
@@ -103,7 +103,7 @@ public class EventServiceImpl implements EventService {
     public List<EventResponse> getPopularEvents() {
         // List of events with votes more than 50 and sorted asc by votes
         int numberOfLikeThresholdToBePopular = 50;
-        return eventRepository.findEventEntitiesByLikesGreaterThanOrderByLikesAsc(numberOfLikeThresholdToBePopular).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
+        return eventRepository.findEventEntitiesByVotesGreaterThanOrderByVotesAsc(numberOfLikeThresholdToBePopular).stream().map(event -> modelMapper.map(event, EventResponse.class)).collect(Collectors.toList());
     }
 
     @Override

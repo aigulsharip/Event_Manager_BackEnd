@@ -26,7 +26,7 @@ public class EventRequest {
 
     private List<String> pictures;
 
-    private Integer likes;
+    private Integer votes;
 
     private Integer dislikes;
 

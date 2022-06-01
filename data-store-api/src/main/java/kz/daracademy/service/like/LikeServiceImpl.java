@@ -55,7 +55,7 @@ public class LikeServiceImpl implements LikeService{
 
                 List<LikeEntity> likes = likeRepository.getLikeEntityByEventId(likeEntity.getEventId());
                 int countVotes = likes.toArray().length; // подтягивается кол-во лайков у евента
-                eventEntity.setLikes(countVotes);
+                eventEntity.setVotes(countVotes);
 
                 eventRepository.save(eventEntity);
 
@@ -89,7 +89,7 @@ public class LikeServiceImpl implements LikeService{
 
         List<LikeEntity> likes = likeRepository.getLikeEntityByEventId(eventId);
         int countVotes = likes.toArray().length; // подтягивается кол-во лайков у евента
-        dbEntity.setLikes(countVotes);
+        dbEntity.setVotes(countVotes);
 
         eventRepository.save(dbEntity);
     }

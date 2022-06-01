@@ -33,7 +33,7 @@ public class EventEntity {
     @ElementCollection
     List<String> pictures;
     @Column
-    Integer likes;
+    Integer votes;
     @Column
     Integer dislikes;
     @Column

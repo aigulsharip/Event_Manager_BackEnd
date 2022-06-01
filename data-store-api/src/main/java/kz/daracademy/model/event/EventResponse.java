@@ -26,7 +26,7 @@ public class EventResponse {
 
     private List<String> pictures;
 
-    Integer likes;
+    Integer votes;
 
     Integer dislikes;
 
