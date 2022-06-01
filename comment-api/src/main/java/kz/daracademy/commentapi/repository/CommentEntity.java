@@ -1,5 +1,6 @@
 package kz.daracademy.commentapi.repository;
 
+import kz.daracademy.commentapi.model.user.UserResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,8 +25,7 @@ public class CommentEntity {
 
 
     @Field(type = FieldType.Keyword)
-    private String userId;
-
+    private UserResponse user;
 
     @Field(type = FieldType.Keyword)
     private String eventId;

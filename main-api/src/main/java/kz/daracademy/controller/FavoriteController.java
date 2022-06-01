@@ -3,9 +3,11 @@ package kz.daracademy.controller;
 import kz.daracademy.feign.DataStoreFeign;
 
 import kz.daracademy.model.Favorite;
+import kz.daracademy.model.UserDetailsModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +22,8 @@ public class FavoriteController {
 
     @PostMapping
     public ResponseEntity<String> createFavorite(@RequestBody Favorite favorite) {
+        UserDetailsModel principal = (UserDetailsModel) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        favorite.setUserId(principal.getUserId());
         return dataStoreFeign.createFavorite(favorite);
     }
 

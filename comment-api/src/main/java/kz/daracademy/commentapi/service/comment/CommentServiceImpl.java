@@ -127,7 +127,7 @@ public class CommentServiceImpl implements CommentService {
     public CommentNotificationInfo prepareCommentForNotification(String commentId) {
         CommentNotificationInfo commentNotificationInfo = new CommentNotificationInfo();
         CommentResponse comment = getCommentById(commentId);
-        UserResponse commentator = eventFeign.getUserById(comment.getUserId());
+        UserResponse commentator = eventFeign.getUserById(comment.getUser().getUserId());
         String commentatorName = commentator.getFullName();
         String commentatorEmail = commentator.getEmail();
         String commentatorText = comment.getText();
@@ -139,7 +139,7 @@ public class CommentServiceImpl implements CommentService {
         } else {
             String parentCommentId = comment.getParentCommentId();
             CommentResponse parentComment = getCommentById(parentCommentId);
-            UserResponse parentCommentator = eventFeign.getUserById(parentComment.getUserId());
+            UserResponse parentCommentator = eventFeign.getUserById(parentComment.getUser().getUserId());
             String parentCommentatorName = parentCommentator.getFullName();
             String parentCommentatorEmail = parentCommentator.getEmail();
             String parentCommentatorText = getCommentById(parentCommentId).getText();
@@ -153,7 +153,7 @@ public class CommentServiceImpl implements CommentService {
         List<CommentResponse> listByEvent = getAllCommentsByEventId(commentRequest.getEventId());
         for (CommentResponse cr : listByEvent) {
             if (cr.getCommentId().equals(commentRequest.getParentCommentId())) {
-                cr.getUserId();
+                cr.getUser().getUserId();
                 sendService.send(objectMapper.writeValueAsString(cr));
             }
         }

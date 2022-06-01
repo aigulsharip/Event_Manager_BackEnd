@@ -25,7 +25,11 @@ public class EventController {
     @PutMapping
     public Event updateEvent(@RequestBody Event event, @RequestParam String eventId) {
         event.setEventId(eventId);
-        return dataStoreFeign.updateEvent(event, eventId);
+        UserDetailsModel principal = (UserDetailsModel) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(principal.getUserId().equals(event.getUser().getUserId())){
+            return dataStoreFeign.updateEvent(event, eventId);
+        }
+        return null;
     }
 
     @GetMapping("/all")

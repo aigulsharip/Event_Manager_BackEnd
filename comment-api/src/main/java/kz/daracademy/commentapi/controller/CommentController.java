@@ -71,7 +71,7 @@ public class CommentController {
 
     @GetMapping("/event")
     public List<CommentResponse> getCommentsByEventIds(@RequestParam String eventId) {
-        return commentService.getCommentsByEventId(eventId);
+        return commentService.getCommentEntitiesByParentCommentIdIsNullAndAndEventId(eventId);
     }
 
 
@@ -81,10 +81,10 @@ public class CommentController {
     }
 
 
-    @GetMapping("/reply")
-    public List<CommentResponse> getReplyComments() {
-        return commentService.getListOfReplyComments();
-    }
+//    @GetMapping("/reply")
+//    public List<CommentResponse> getReplyComments() {
+//        return commentService.getListOfReplyComments();
+//    }
 
 
     @PostMapping("/email")

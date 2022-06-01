@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponse createUser(UserRequest userRequest) {
-        userRequest.setUserId(UUID.randomUUID().toString());
+
         userRequest.setUserIdF(UUID.randomUUID().toString());
         UserEntity userEntity = modelMapper.map(userRequest, UserEntity.class);
         userEntity = userRepository.save(userEntity);

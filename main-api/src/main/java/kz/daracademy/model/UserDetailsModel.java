@@ -16,9 +16,10 @@ import java.util.List;
 public class UserDetailsModel {
 
     private String email;
-    private String id;
+//    private String id;
     private List<String> roles;
     private String userId;
+    private String fullName;
     private HashMap<String, ArrayList<String>> acl;
 
 }

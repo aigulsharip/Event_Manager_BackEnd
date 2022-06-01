@@ -58,7 +58,10 @@ public class JwtTokenProvider {
 
     private Claims _getClaims(String token) throws Exception {
         PublicKey publicKey = decodePublicKey(pemToDer(jwtSecret));
-        return Jwts.parserBuilder().setSigningKey(publicKey).build().parseClaimsJws(token).getBody();
+        JwtParserBuilder jwtParserBuilder = Jwts.parserBuilder().setSigningKey(publicKey);
+        JwtParser jwtParser = jwtParserBuilder.build();
+        Jws<Claims> jws = jwtParser.parseClaimsJws(token);
+        return jws.getBody();
     }
 
     private byte[] pemToDer(String pem) {
@@ -107,7 +110,7 @@ public class JwtTokenProvider {
         Claims claims = getClaims(token);
 
         UserDetailsModel user = new UserDetailsModel();
-        user.setId(claims.get("id", String.class));
+        user.setUserId(claims.get("userId", String.class));
         user.setEmail(claims.get("email", String.class));
         user.setRoles((ArrayList<String>) claims.getOrDefault("roles", new ArrayList<>()));
 
