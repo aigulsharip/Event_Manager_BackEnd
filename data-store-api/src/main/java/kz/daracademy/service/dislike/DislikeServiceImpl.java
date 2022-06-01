@@ -4,8 +4,10 @@ import kz.daracademy.model.dislike.DislikeEntity;
 import kz.daracademy.model.dislike.DislikeRequest;
 import kz.daracademy.model.dislike.DislikeResponse;
 import kz.daracademy.model.event.EventEntity;
+import kz.daracademy.model.user.UserEntity;
 import kz.daracademy.repository.DislikeRepository;
 import kz.daracademy.repository.EventRepository;
+import kz.daracademy.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class DislikeServiceImpl implements DislikeService {
 
     @Autowired
     private EventRepository eventRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     static ModelMapper modelMapper = new ModelMapper();
 
@@ -38,15 +43,19 @@ public class DislikeServiceImpl implements DislikeService {
                     dislikeEntity.getUserId());
 
             if (dislikeEntity1 == null) {
-                dislikeEntity = dislikeRepository.save(dislikeEntity); // dislike добавляется в таблицу +1 dislike
+                EventEntity eventEntity = eventRepository.getEventEntityByEventId(dislikeEntity.getEventId());
+                UserEntity userEntity = userRepository.getUserEntityByUserId(dislikeEntity.getUserId());
+                if (eventEntity == null || userEntity == null) {
+                    throw new Exception();
+                }
 
-                EventEntity dbEntity = eventRepository.getEventEntityByEventId(dislikeEntity.getEventId());
+                dislikeEntity = dislikeRepository.save(dislikeEntity); // dislike добавляется в таблицу +1 dislike
 
                 List<DislikeEntity> dislikes = dislikeRepository.getDislikeEntityByEventId(dislikeEntity.getEventId());
                 int countVotes = dislikes.toArray().length; // подтягивается кол-во дизлайков у евента
-                dbEntity.setVotes(countVotes);
+                eventEntity.setDislikes(countVotes);
 
-                eventRepository.save(dbEntity);
+                eventRepository.save(eventEntity);
 
                 return modelMapper.map(dislikeEntity, DislikeResponse.class);
             } else {
@@ -78,7 +87,7 @@ public class DislikeServiceImpl implements DislikeService {
 
         List<DislikeEntity> dislies = dislikeRepository.getDislikeEntityByEventId(eventId);
         int countVotes = dislies.toArray().length; // подтягивается кол-во дизлайков у евента
-        dbEntity.setVotes(countVotes);
+        dbEntity.setDislikes(countVotes);
 
         eventRepository.save(dbEntity);
     }

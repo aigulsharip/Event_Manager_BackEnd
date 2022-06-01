@@ -28,8 +28,9 @@ public class EventRequest {
 
     private Integer votes;
 
-    Date postedDate;
+    private Integer dislikes;
 
+    Date postedDate;
 
     private CategoryEntity category;
 

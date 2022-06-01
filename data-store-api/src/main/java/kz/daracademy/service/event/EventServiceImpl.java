@@ -44,6 +44,7 @@ public class EventServiceImpl implements EventService {
     public EventResponse createEvent(EventRequest eventRequest) {
         eventRequest.setEventId(UUID.randomUUID().toString());
         eventRequest.setVotes(0);
+        eventRequest.setDislikes(0);
 
         UserEntity userEntity = userRepository.getUserEntityByUserId(eventRequest.getUser().getUserId());
 

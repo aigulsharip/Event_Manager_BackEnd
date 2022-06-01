@@ -28,6 +28,8 @@ public class EventResponse {
 
     Integer votes;
 
+    Integer dislikes;
+
     Date postedDate;
 
 
