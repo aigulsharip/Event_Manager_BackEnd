@@ -49,13 +49,13 @@ public interface DataStoreFeign {
     @GetMapping("/event/user")
     List<Event> getEventsByUserId(@RequestParam String userId);
 
-    @GetMapping("/filter")
+    @GetMapping("/event/filter")
     List<Event> filterEventByCategory(@RequestParam String categoryId);
 
-    @GetMapping("/filter/categoryName")
+    @GetMapping("/event/filter/categoryName")
     List<Event> filterEventsByCategoryName(@RequestParam String categoryName);
 
-    @GetMapping("/section")
+    @GetMapping("/event/section")
     List<Event> getSections (@RequestParam String sectionName);
 
     //-------------------------------------------------------------

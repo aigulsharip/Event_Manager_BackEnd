@@ -26,6 +26,8 @@ public class Event {
 
     private Integer votes;
 
+    private Integer dislikes;
+
     Date postedDate;
 
 
