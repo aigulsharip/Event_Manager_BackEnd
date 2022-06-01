@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Comment {
     private String commentId;
     private String text;
-    private String userId;
+    private UserDetailsModel user;
     private String eventId;
     private String parentCommentId;
 }

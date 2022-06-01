@@ -1,6 +1,7 @@
 package kz.daracademy.feign;
 
 import kz.daracademy.model.Comment;
+import kz.daracademy.model.UserDetailsModel;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,18 @@ public interface CommentFeign {
 
     @DeleteMapping("/comment")
     void deleteComment(@RequestParam String commentId);
+
+    @PostMapping("/user")
+    void createUser(@RequestBody UserDetailsModel user);
+
+    @GetMapping("/comment/event")
+    List<Comment> getCommentsByEventIds(@RequestParam String eventId);
+
+
+    @GetMapping("/comment/detail")
+    List<Comment> getAllReplies(@RequestParam String commentId);
+
+
 
 
 

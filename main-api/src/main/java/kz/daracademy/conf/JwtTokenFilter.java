@@ -46,8 +46,9 @@ public class JwtTokenFilter extends GenericFilterBean {
 
             UserDetailsModel userDetailsModel = new UserDetailsModel();
 
-            userDetailsModel.setId(claims.getSubject());
+            userDetailsModel.setUserId(claims.getSubject());
             userDetailsModel.setEmail((String) claims.get("email"));
+            userDetailsModel.setFullName((String) claims.get("name"));
             userDetailsModel.setRoles((ArrayList<String>) claims.get("roles"));
 
             userDetailsModel.setAcl((HashMap<String, ArrayList<String>>) claims.get("acl"));

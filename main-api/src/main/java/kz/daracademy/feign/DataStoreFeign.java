@@ -11,8 +11,7 @@ import java.util.List;
 @FeignClient("data-store-api")
 public interface DataStoreFeign {
 
-    @PostMapping("/user")
-    void createUser(UserDetailsModel userDetailModel);
+
 
     //---------------------------------------------------
     @GetMapping("/category/all")
@@ -103,4 +102,7 @@ public interface DataStoreFeign {
     @DeleteMapping("/dislike")
     void deleteDislikeByEventIdAndUserId(@RequestParam String eventId, @RequestParam String userId);
 
+
+    @PostMapping("/user")
+    void createUser(@RequestBody UserDetailsModel user);
 }
